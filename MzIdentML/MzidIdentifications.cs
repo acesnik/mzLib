@@ -802,7 +802,7 @@ namespace MzIdentML
             try
             {
                 if (dd110.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("Thermo RAW format")
-                || dd110.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
+                    || dd110.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
                 {
                     ms2id = dd110.DataCollection.AnalysisData.SpectrumIdentificationList[0].SpectrumIdentificationResult[sirIndex].spectrumID;
                 }
@@ -816,7 +816,7 @@ namespace MzIdentML
                 try
                 {
                     if (dd111.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("Thermo RAW format")
-       || dd111.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
+                        || dd111.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
                     {
                         ms2id = dd111.DataCollection.AnalysisData.SpectrumIdentificationList[0].SpectrumIdentificationResult[sirIndex].spectrumID;
                     }
@@ -828,7 +828,7 @@ namespace MzIdentML
                 catch
                 {
                     if (dd120.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("Thermo RAW format")
-       || dd120.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
+                        || dd120.DataCollection.Inputs.SpectraData[0].FileFormat.cvParam.name.Equals("mzML format"))
                     {
                         ms2id = dd120.DataCollection.AnalysisData.SpectrumIdentificationList[0].SpectrumIdentificationResult[sirIndex].spectrumID;
                     }
