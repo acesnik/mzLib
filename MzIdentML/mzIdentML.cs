@@ -2,512 +2,542 @@
 
 namespace MzIdentML
 {
-    public abstract partial class MzIdentML : IdentifiableType
+    public partial interface IMzIdentML : IIdentifiableType
     {
-        public abstract cvType[] cvList { get; set; }
-        public abstract AnalysisSoftwareType[] AnalysisSoftwareList { get; set; }
-        public abstract ProviderType Provider { get; set; }
-        public abstract AbstractContactType[] AuditCollection { get; set; }
-        public abstract SampleType[] AnalysisSampleCollection { get; set; }
-        public abstract SequenceCollectionType SequenceCollection { get; set; }
-        public abstract AnalysisCollectionType AnalysisCollection { get; set; }
-        public abstract AnalysisProtocolCollectionType AnalysisProtocolCollection { get; set; }
-        public abstract DataCollectionType DataCollection { get; set; }
-        public abstract BibliographicReferenceType[] BibliographicReference { get; set; }
-        public abstract DateTime creationDate { get; set; }
-        public abstract bool creationDateSpecified { get; set; }
-        public abstract string version { get; set; }
+        ICvType[] cvList { get; set; }
+        IAnalysisSoftwareType[] AnalysisSoftwareList { get; set; }
+        IProviderType Provider { get; set; }
+        IAbstractContactType[] AuditCollection { get; set; }
+        ISampleType[] AnalysisSampleCollection { get; set; }
+        ISequenceCollectionType SequenceCollection { get; set; }
+        IAnalysisCollectionType AnalysisCollection { get; set; }
+        IAnalysisProtocolCollectionType AnalysisProtocolCollection { get; set; }
+        IDataCollectionType DataCollection { get; set; }
+        IBibliographicReferenceType[] BibliographicReference { get; set; }
+        DateTime creationDate { get; set; }
+        bool creationDateSpecified { get; set; }
+        string version { get; set; }
     }
 
-    public abstract partial class cvType
+    public partial interface ICvType
     {
-        public abstract string fullName { get; set; }
-        public abstract string version { get; set; }
-        public abstract string uri { get; set; }
-        public abstract string id { get; set; }
+        string fullName { get; set; }
+        string version { get; set; }
+        string uri { get; set; }
+        string id { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationItemRefType
+    public interface ISpectrumIdentificationItemRefType
     {
-        public abstract string spectrumIdentificationItem_ref { get; set; }
+        string spectrumIdentificationItem_ref { get; set; }
     }
 
-    public abstract partial class PeptideHypothesisType
+    public interface IPeptideHypothesisType
     {
-        public abstract SpectrumIdentificationItemRefType[] SpectrumIdentificationItemRef { get; set; }
-        public abstract string peptideEvidence_ref { get; set; }
+        ISpectrumIdentificationItemRefType[] SpectrumIdentificationItemRef { get; set; }
+        string peptideEvidence_ref { get; set; }
     }
 
-    public abstract partial class FragmentArrayType
+    public interface IFragmentArrayType
     {
-        public abstract float[] values { get; set; }
-        public abstract string measure_ref { get; set; }
+        float[] values { get; set; }
+        string measure_ref { get; set; }
     }
 
-    public abstract partial class IonTypeType
+    public interface IIonTypeType
     {
-        public abstract FragmentArrayType[] FragmentArray { get; set; }
-        public abstract CVParamType cvParam { get; set; }
-        public abstract string[] index { get; set; }
-        public abstract int charge { get; set; }
+        IFragmentArrayType[] FragmentArray { get; set; }
+        ICVParamType cvParam { get; set; }
+        string[] index { get; set; }
+        int charge { get; set; }
     }
 
-    public abstract partial class CVParamType : AbstractParamType
+    public interface ICVParamType : IAbstractParamType
     {
-        public abstract string cvRef { get; set; }
-        public abstract string accession { get; set; }
+        string cvRef { get; set; }
+        string accession { get; set; }
     }
 
-    public abstract partial class AbstractParamType
+    public partial interface IAbstractParamType
     {
-        public abstract string name { get; set; }
-        public abstract string value { get; set; }
-        public abstract string unitAccession { get; set; }
-        public abstract string unitName { get; set; }
-        public abstract string unitCvRef { get; set; }
+        string name { get; set; }
+        string value { get; set; }
+        string unitAccession { get; set; }
+        string unitName { get; set; }
+        string unitCvRef { get; set; }
     }
 
-    public abstract partial class UserParamType : AbstractParamType
+    public interface IUserParamType : IAbstractParamType
     {
-        public abstract string type { get; set; }
+        string type { get; set; }
     }
 
-    public abstract partial class PeptideEvidenceRefType
+    public interface IPeptideEvidenceRefType
     {
-        public abstract string peptideEvidence_ref { get; set; }
+        string peptideEvidence_ref { get; set; }
     }
 
-    public abstract partial class AnalysisDataType
+    public interface IAnalysisDataType
     {
-        public abstract SpectrumIdentificationListType[] SpectrumIdentificationList { get; set; }
-        public abstract ProteinDetectionListType ProteinDetectionList { get; set; }
+        ISpectrumIdentificationListType[] SpectrumIdentificationList { get; set; }
+        IProteinDetectionListType ProteinDetectionList { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationListType : IdentifiableType
+    public interface ISpectrumIdentificationListType : IIdentifiableType
     {
-        public abstract MeasureType[] FragmentationTable { get; set; }
-        public abstract SpectrumIdentificationResultType[] SpectrumIdentificationResult { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract long numSequencesSearched { get; set; }
-        public abstract bool numSequencesSearchedSpecified { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IMeasureType[] FragmentationTable { get; set; }
+        ISpectrumIdentificationResultType[] SpectrumIdentificationResult { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        long numSequencesSearched { get; set; }
+        bool numSequencesSearchedSpecified { get; set; }
     }
 
-    public abstract partial class MeasureType : IdentifiableType
+    public interface IMeasureType : IIdentifiableType
     {
-        public abstract CVParamType[] cvParam { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        ICVParamType[] cvParam { get; set; }
     }
 
-    public abstract partial class IdentifiableType
+    public partial interface IIdentifiableType
     {
-        public abstract string id { get; set; }
-        public abstract string name { get; set; }
+        string id { get; set; }
+        string name { get; set; }
     }
 
-    public abstract partial class BibliographicReferenceType : IdentifiableType
+    public partial interface IBibliographicReferenceType : IIdentifiableType
     {
-        public abstract string authors { get; set; }
-        public abstract string publication { get; set; }
-        public abstract string publisher { get; set; }
-        public abstract string editor { get; set; }
-        public abstract int year { get; set; }
-        public abstract bool yearSpecified { get; set; }
-        public abstract string volume { get; set; }
-        public abstract string issue { get; set; }
-        public abstract string pages { get; set; }
-        public abstract string title { get; set; }
-        public abstract string doi { get; set; }
+        string authors { get; set; }
+        string publication { get; set; }
+        string publisher { get; set; }
+        string editor { get; set; }
+        int year { get; set; }
+        bool yearSpecified { get; set; }
+        string volume { get; set; }
+        string issue { get; set; }
+        string pages { get; set; }
+        string title { get; set; }
+        string doi { get; set; }
     }
 
-    public abstract partial class ProteinDetectionHypothesisType : IdentifiableType
+    public interface IProteinDetectionHypothesisType : IIdentifiableType
     {
-        public abstract PeptideHypothesisType[] PeptideHypothesis { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract string dBSequence_ref { get; set; }
-        public abstract bool passThreshold { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IPeptideHypothesisType[] PeptideHypothesis { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        string dBSequence_ref { get; set; }
+        bool passThreshold { get; set; }
     }
 
-    public abstract partial class ProteinAmbiguityGroupType : IdentifiableType
+    public interface IProteinAmbiguityGroupType : IIdentifiableType
     {
-        public abstract ProteinDetectionHypothesisType[] ProteinDetectionHypothesis { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IProteinDetectionHypothesisType[] ProteinDetectionHypothesis { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class ProteinDetectionListType : IdentifiableType
+    public interface IProteinDetectionListType : IIdentifiableType
     {
-        public abstract ProteinAmbiguityGroupType[] ProteinAmbiguityGroup { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IProteinAmbiguityGroupType[] ProteinAmbiguityGroup { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationItemType : IdentifiableType
+    public interface ISpectrumIdentificationItemType : IIdentifiableType
     {
-        public abstract PeptideEvidenceRefType[] PeptideEvidenceRef { get; set; }
-        public abstract IonTypeType[] Fragmentation { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract int chargeState { get; set; }
-        public abstract double experimentalMassToCharge { get; set; }
-        public abstract double calculatedMassToCharge { get; set; }
-        public abstract bool calculatedMassToChargeSpecified { get; set; }
-        public abstract float calculatedPI { get; set; }
-        public abstract bool calculatedPISpecified { get; set; }
-        public abstract string peptide_ref { get; set; }
-        public abstract int rank { get; set; }
-        public abstract bool passThreshold { get; set; }
-        public abstract string massTable_ref { get; set; }
-        public abstract string sample_ref { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IPeptideEvidenceRefType[] PeptideEvidenceRef { get; set; }
+        IIonTypeType[] Fragmentation { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        int chargeState { get; set; }
+        double experimentalMassToCharge { get; set; }
+        double calculatedMassToCharge { get; set; }
+        bool calculatedMassToChargeSpecified { get; set; }
+        float calculatedPI { get; set; }
+        bool calculatedPISpecified { get; set; }
+        string peptide_ref { get; set; }
+        int rank { get; set; }
+        bool passThreshold { get; set; }
+        string massTable_ref { get; set; }
+        string sample_ref { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationResultType : IdentifiableType
+    public interface ISpectrumIdentificationResultType : IIdentifiableType
     {
-        public abstract SpectrumIdentificationItemType[] SpectrumIdentificationItem { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract string spectrumID { get; set; }
-        public abstract string spectraData_ref { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        ISpectrumIdentificationItemType[] SpectrumIdentificationItem { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        string spectrumID { get; set; }
+        string spectraData_ref { get; set; }
     }
 
-    public abstract partial class ExternalDataType : IdentifiableType
+    public interface IExternalDataType : IIdentifiableType
     {
-        public abstract string ExternalFormatDocumentation { get; set; }
-        public abstract FileFormatType FileFormat { get; set; }
-        public abstract string location { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        string ExternalFormatDocumentation { get; set; }
+        IFileFormatType FileFormat { get; set; }
+        string location { get; set; }
     }
 
-    public abstract partial class FileFormatType
+    public interface IFileFormatType
     {
-        public abstract CVParamType cvParam { get; set; }
+        ICVParamType cvParam { get; set; }
     }
 
-    public abstract partial class SpectraDataType : ExternalDataType
+    public interface ISpectraDataType : IExternalDataType
     {
-        public abstract SpectrumIDFormatType SpectrumIDFormat { get; set; }
+        ISpectrumIDFormatType SpectrumIDFormat { get; set; }
     }
 
-    public abstract partial class SpectrumIDFormatType
+    public interface ISpectrumIDFormatType
     {
-        public abstract CVParamType cvParam { get; set; }
+        ICVParamType cvParam { get; set; }
     }
 
-    public abstract partial class SourceFileType : ExternalDataType
+    public interface ISourceFileType : IExternalDataType
     {
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class SearchDatabaseType : ExternalDataType
+    public interface ISearchDatabaseType : IExternalDataType
     {
-        public abstract ParamType DatabaseName { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract string version { get; set; }
-        public abstract DateTime releaseDate { get; set; }
-        public abstract bool releaseDateSpecified { get; set; }
-        public abstract long numDatabaseSequences { get; set; }
-        public abstract bool numDatabaseSequencesSpecified { get; set; }
-        public abstract long numResidues { get; set; }
-        public abstract bool numResiduesSpecified { get; set; }
+        IParamType DatabaseName { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        string version { get; set; }
+        DateTime releaseDate { get; set; }
+        bool releaseDateSpecified { get; set; }
+        long numDatabaseSequences { get; set; }
+        bool numDatabaseSequencesSpecified { get; set; }
+        long numResidues { get; set; }
+        bool numResiduesSpecified { get; set; }
     }
 
-    public abstract partial class ParamType
+    public partial interface IParamType
     {
-        public abstract AbstractParamType Item { get; set; }
+        IAbstractParamType Item { get; set; }
     }
 
-    public abstract partial class ProteinDetectionProtocolType : IdentifiableType
+    public interface IProteinDetectionProtocolType : IIdentifiableType
     {
-        public abstract ParamListType AnalysisParams { get; set; }
-        public abstract ParamListType Threshold { get; set; }
-        public abstract string analysisSoftware_ref { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IParamListType AnalysisParams { get; set; }
+        IParamListType Threshold { get; set; }
+        string analysisSoftware_ref { get; set; }
     }
 
-    public abstract partial class ParamListType
+    public interface IParamListType
     {
-        public abstract AbstractParamType[] Items { get; set; }
+        IAbstractParamType[] Items { get; set; }
     }
 
-    public abstract partial class TranslationTableType : IdentifiableType
+    public interface ITranslationTableType : IIdentifiableType
     {
-        public abstract CVParamType[] cvParam { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        ICVParamType[] cvParam { get; set; }
     }
 
-    public abstract partial class MassTableType : IdentifiableType
+    public interface IMassTableType : IIdentifiableType
     {
-        public abstract ResidueType[] Residue { get; set; }
-        public abstract AmbiguousResidueType[] AmbiguousResidue { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract string[] msLevel { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IResidueType[] Residue { get; set; }
+        IAmbiguousResidueType[] AmbiguousResidue { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        string[] msLevel { get; set; }
     }
 
-    public abstract partial class ResidueType
+    public interface IResidueType
     {
-        public abstract string code { get; set; }
-        public abstract float mass { get; set; }
+        string code { get; set; }
+        float mass { get; set; }
     }
 
-    public abstract partial class AmbiguousResidueType
+    public interface IAmbiguousResidueType
     {
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract string code { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        string code { get; set; }
     }
 
-    public abstract partial class EnzymeType : IdentifiableType
+    public interface IEnzymeType : IIdentifiableType
     {
-        public abstract string SiteRegexp { get; set; }
-        public abstract ParamListType EnzymeName { get; set; }
-        public abstract string nTermGain { get; set; }
-        public abstract string cTermGain { get; set; }
-        public abstract bool semiSpecific { get; set; }
-        public abstract bool semiSpecificSpecified { get; set; }
-        public abstract int missedCleavages { get; set; }
-        public abstract bool missedCleavagesSpecified { get; set; }
-        public abstract int minDistance { get; set; }
-        public abstract bool minDistanceSpecified { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        string SiteRegexp { get; set; }
+        IParamListType EnzymeName { get; set; }
+        string nTermGain { get; set; }
+        string cTermGain { get; set; }
+        bool semiSpecific { get; set; }
+        bool semiSpecificSpecified { get; set; }
+        int missedCleavages { get; set; }
+        bool missedCleavagesSpecified { get; set; }
+        int minDistance { get; set; }
+        bool minDistanceSpecified { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationProtocolType : IdentifiableType
+    public interface ISpectrumIdentificationProtocolType : IIdentifiableType
     {
-        public abstract ParamType SearchType { get; set; }
-        public abstract ParamListType AdditionalSearchParams { get; set; }
-        public abstract SearchModificationType[] ModificationParams { get; set; }
-        public abstract EnzymesType Enzymes { get; set; }
-        public abstract MassTableType[] MassTable { get; set; }
-        public abstract CVParamType[] FragmentTolerance { get; set; }
-        public abstract CVParamType[] ParentTolerance { get; set; }
-        public abstract ParamListType Threshold { get; set; }
-        public abstract FilterType[] DatabaseFilters { get; set; }
-        public abstract DatabaseTranslationType DatabaseTranslation { get; set; }
-        public abstract string analysisSoftware_ref { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IParamType SearchType { get; set; }
+        IParamListType AdditionalSearchParams { get; set; }
+        ISearchModificationType[] ModificationParams { get; set; }
+        IEnzymesType Enzymes { get; set; }
+        IMassTableType[] MassTable { get; set; }
+        ICVParamType[] FragmentTolerance { get; set; }
+        ICVParamType[] ParentTolerance { get; set; }
+        IParamListType Threshold { get; set; }
+        IFilterType[] DatabaseFilters { get; set; }
+        IDatabaseTranslationType DatabaseTranslation { get; set; }
+        string analysisSoftware_ref { get; set; }
     }
 
-    public abstract partial class SearchModificationType
+    public interface ISearchModificationType
     {
-        public abstract CVParamType[] SpecificityRules { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract bool fixedMod { get; set; }
-        public abstract float massDelta { get; set; }
-        public abstract string residues { get; set; }
+        ICVParamType[] SpecificityRules { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        bool fixedMod { get; set; }
+        float massDelta { get; set; }
+        string residues { get; set; }
     }
 
-    public abstract partial class EnzymesType
+    public interface IEnzymesType
     {
-        public abstract EnzymeType[] Enzyme { get; set; }
-        public abstract bool independent { get; set; }
-        public abstract bool independentSpecified { get; set; }
+        IEnzymeType[] Enzyme { get; set; }
+        bool independent { get; set; }
+        bool independentSpecified { get; set; }
     }
 
-    public abstract partial class FilterType
+    public interface IFilterType
     {
-        public abstract ParamType FilterType1 { get; set; }
-        public abstract ParamListType Include { get; set; }
-        public abstract ParamListType Exclude { get; set; }
+        IParamType FilterType1 { get; set; }
+        IParamListType Include { get; set; }
+        IParamListType Exclude { get; set; }
     }
 
-    public abstract partial class DatabaseTranslationType
+    public interface IDatabaseTranslationType
     {
-        public abstract TranslationTableType[] TranslationTable { get; set; }
-        public abstract int[] frames { get; set; }
+        ITranslationTableType[] TranslationTable { get; set; }
+        int[] frames { get; set; }
     }
 
-    public abstract partial class ProtocolApplicationType : IdentifiableType
+    public interface IProtocolApplicationType : IIdentifiableType
     {
-        public abstract DateTime activityDate { get; set; }
-        public abstract bool activityDateSpecified { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        DateTime activityDate { get; set; }
+        bool activityDateSpecified { get; set; }
     }
 
-    public abstract partial class ProteinDetectionType : ProtocolApplicationType
+    public interface IProteinDetectionType : IProtocolApplicationType
     {
-        public abstract InputSpectrumIdentificationsType[] InputSpectrumIdentifications { get; set; }
-        public abstract string proteinDetectionList_ref { get; set; }
-        public abstract string proteinDetectionProtocol_ref { get; set; }
+        IInputSpectrumIdentificationsType[] InputSpectrumIdentifications { get; set; }
+        string proteinDetectionList_ref { get; set; }
+        string proteinDetectionProtocol_ref { get; set; }
     }
 
-    public abstract partial class InputSpectrumIdentificationsType
+    public interface IInputSpectrumIdentificationsType
     {
-        public abstract string spectrumIdentificationList_ref { get; set; }
+        string spectrumIdentificationList_ref { get; set; }
     }
 
-    public abstract partial class SpectrumIdentificationType : ProtocolApplicationType
+    public interface ISpectrumIdentificationType : IProtocolApplicationType
     {
-        public abstract InputSpectraType[] InputSpectra { get; set; }
-        public abstract SearchDatabaseRefType[] SearchDatabaseRef { get; set; }
-        public abstract string spectrumIdentificationProtocol_ref { get; set; }
-        public abstract string spectrumIdentificationList_ref { get; set; }
+        IInputSpectraType[] InputSpectra { get; set; }
+        ISearchDatabaseRefType[] SearchDatabaseRef { get; set; }
+        string spectrumIdentificationProtocol_ref { get; set; }
+        string spectrumIdentificationList_ref { get; set; }
     }
 
-    public abstract partial class InputSpectraType
+    public interface IInputSpectraType
     {
-        public abstract string spectraData_ref { get; set; }
+        string spectraData_ref { get; set; }
     }
 
-    public abstract partial class SearchDatabaseRefType
+    public interface ISearchDatabaseRefType
     {
-        public abstract string searchDatabase_ref { get; set; }
+        string searchDatabase_ref { get; set; }
     }
 
-    public abstract partial class PeptideEvidenceType : IdentifiableType
+    public interface IPeptideEvidenceType : IIdentifiableType
     {
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract string dBSequence_ref { get; set; }
-        public abstract string peptide_ref { get; set; }
-        public abstract int start { get; set; }
-        public abstract bool startSpecified { get; set; }
-        public abstract int end { get; set; }
-        public abstract bool endSpecified { get; set; }
-        public abstract string pre { get; set; }
-        public abstract string post { get; set; }
-        public abstract string translationTable_ref { get; set; }
-        public abstract int frame { get; set; }
-        public abstract bool frameSpecified { get; set; }
-        public abstract bool isDecoy { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        string dBSequence_ref { get; set; }
+        string peptide_ref { get; set; }
+        int start { get; set; }
+        bool startSpecified { get; set; }
+        int end { get; set; }
+        bool endSpecified { get; set; }
+        string pre { get; set; }
+        string post { get; set; }
+        string translationTable_ref { get; set; }
+        int frame { get; set; }
+        bool frameSpecified { get; set; }
+        bool isDecoy { get; set; }
     }
 
-    public abstract partial class PeptideType : IdentifiableType
+    public interface IPeptideType : IIdentifiableType
     {
-        public abstract string PeptideSequence { get; set; }
-        public abstract ModificationType[] Modification { get; set; }
-        public abstract SubstitutionModificationType[] SubstitutionModification { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        string PeptideSequence { get; set; }
+        IModificationType[] Modification { get; set; }
+        ISubstitutionModificationType[] SubstitutionModification { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class ModificationType
+    public interface IModificationType
     {
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract int location { get; set; }
-        public abstract bool locationSpecified { get; set; }
-        public abstract string[] residues { get; set; }
-        public abstract double avgMassDelta { get; set; }
-        public abstract bool avgMassDeltaSpecified { get; set; }
-        public abstract double monoisotopicMassDelta { get; set; }
-        public abstract bool monoisotopicMassDeltaSpecified { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        int location { get; set; }
+        bool locationSpecified { get; set; }
+        string[] residues { get; set; }
+        double avgMassDelta { get; set; }
+        bool avgMassDeltaSpecified { get; set; }
+        double monoisotopicMassDelta { get; set; }
+        bool monoisotopicMassDeltaSpecified { get; set; }
     }
 
-    public abstract partial class SubstitutionModificationType
+    public interface ISubstitutionModificationType
     {
-        public abstract string originalResidue { get; set; }
-        public abstract string replacementResidue { get; set; }
-        public abstract int location { get; set; }
-        public abstract bool locationSpecified { get; set; }
-        public abstract double avgMassDelta { get; set; }
-        public abstract bool avgMassDeltaSpecified { get; set; }
-        public abstract double monoisotopicMassDelta { get; set; }
-        public abstract bool monoisotopicMassDeltaSpecified { get; set; }
+        string originalResidue { get; set; }
+        string replacementResidue { get; set; }
+        int location { get; set; }
+        bool locationSpecified { get; set; }
+        double avgMassDelta { get; set; }
+        bool avgMassDeltaSpecified { get; set; }
+        double monoisotopicMassDelta { get; set; }
+        bool monoisotopicMassDeltaSpecified { get; set; }
     }
 
-    public abstract partial class DBSequenceType : IdentifiableType
+    public interface IDBSequenceType : IIdentifiableType
     {
-        public abstract string Seq { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
-        public abstract int length { get; set; }
-        public abstract bool lengthSpecified { get; set; }
-        public abstract string searchDatabase_ref { get; set; }
-        public abstract string accession { get; set; }
+        string Seq { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
+        int length { get; set; }
+        bool lengthSpecified { get; set; }
+        string searchDatabase_ref { get; set; }
+        string accession { get; set; }
     }
 
-    public abstract partial class SampleType : IdentifiableType
+    public partial interface ISampleType : IIdentifiableType
     {
-        public abstract ContactRoleType[] ContactRole { get; set; }
-        public abstract SubSampleType[] SubSample { get; set; }
-        public abstract CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        IContactRoleType[] ContactRole { get; set; }
+        ISubSampleType[] SubSample { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class ContactRoleType
+    public partial interface IContactRoleType
     {
-        public abstract RoleType Role { get; set; }
-        public abstract string contact_ref { get; set; }
+        IRoleType Role { get; set; }
+        string contact_ref { get; set; }
     }
 
-    public abstract partial class RoleType
+    public interface IRoleType
     {
-        public abstract CVParamType cvParam { get; set; }
+        ICVParamType cvParam { get; set; }
     }
 
-    public abstract partial class SubSampleType
+    public interface ISubSampleType
     {
-        public abstract string sample_ref { get; set; }
+        string sample_ref { get; set; }
     }
 
-    public abstract partial class AbstractContactType : IdentifiableType
+    public partial interface IAbstractContactType : IIdentifiableType
     {
-        public CVParamType[] cvParam { get; set; }
-        public abstract UserParamType[] userParam { get; set; }
+        ICVParamType[] cvParam { get; set; }
+        IUserParamType[] userParam { get; set; }
     }
 
-    public abstract partial class OrganizationType : AbstractContactType
+    public partial interface IOrganizationType : IAbstractContactType
     {
-        public abstract ParentOrganizationType Parent { get; set; }
+        IParentOrganizationType Parent { get; set; }
     }
 
-    public abstract partial class ParentOrganizationType
+    public interface IParentOrganizationType
     {
-        public abstract string organization_ref { get; set; }
+        string organization_ref { get; set; }
     }
 
-    public abstract partial class PersonType : AbstractContactType
+    public partial interface IPersonType : IAbstractContactType
     {
-        public abstract AffiliationType[] Affiliation { get; set; }
-        public abstract string lastName { get; set; }
-        public abstract string firstName { get; set; }
-        public abstract string midInitials { get; set; }
+        IAffiliationType[] Affiliation { get; set; }
+        string lastName { get; set; }
+        string firstName { get; set; }
+        string midInitials { get; set; }
     }
 
-    public abstract partial class AffiliationType
+    public interface IAffiliationType
     {
-        public abstract string organization_ref { get; set; }
+        string organization_ref { get; set; }
     }
 
-    public abstract partial class ProviderType : IdentifiableType
+    public partial interface IProviderType : IIdentifiableType
     {
-        public abstract ContactRoleType ContactRole { get; set; }
-        public abstract string analysisSoftware_ref { get; set; }
+        IContactRoleType ContactRole { get; set; }
+        string analysisSoftware_ref { get; set; }
     }
 
-    public abstract partial class AnalysisSoftwareType : IdentifiableType
+    public partial interface IAnalysisSoftwareType : IIdentifiableType
     {
-        public abstract ContactRoleType ContactRole { get; set; }
-        public abstract ParamType SoftwareName { get; set; }
-        public abstract string Customizations { get; set; }
-        public abstract string version { get; set; }
-        public abstract string uri { get; set; }
+        string id { get; set; }
+        string name { get; set; }
+        IContactRoleType ContactRole { get; set; }
+        IParamType SoftwareName { get; set; }
+        string Customizations { get; set; }
+        string version { get; set; }
+        string uri { get; set; }
     }
 
-    public abstract partial class InputsType
+    public interface IInputsType
     {
-        public abstract SourceFileType[] SourceFile { get; set; }
-        public abstract SearchDatabaseType[] SearchDatabase { get; set; }
-        public abstract SpectraDataType[] SpectraData { get; set; }
+        ISourceFileType[] SourceFile { get; set; }
+        ISearchDatabaseType[] SearchDatabase { get; set; }
+        ISpectraDataType[] SpectraData { get; set; }
     }
 
-    public abstract partial class DataCollectionType
+    public partial interface IDataCollectionType
     {
-        public abstract InputsType Inputs { get; set; }
-        public abstract AnalysisDataType AnalysisData { get; set; }
+        IInputsType Inputs { get; set; }
+        IAnalysisDataType AnalysisData { get; set; }
     }
 
-    public abstract partial class AnalysisProtocolCollectionType
+    public partial interface IAnalysisProtocolCollectionType
     {
-        public abstract SpectrumIdentificationProtocolType[] SpectrumIdentificationProtocol { get; set; }
-        public abstract ProteinDetectionProtocolType ProteinDetectionProtocol { get; set; }
+        ISpectrumIdentificationProtocolType[] SpectrumIdentificationProtocol { get; set; }
+        IProteinDetectionProtocolType ProteinDetectionProtocol { get; set; }
     }
 
-    public abstract partial class AnalysisCollectionType
+    public partial interface IAnalysisCollectionType
     {
-        public abstract SpectrumIdentificationType[] SpectrumIdentification { get; set; }
-        public abstract ProteinDetectionType ProteinDetection { get; set; }
+        ISpectrumIdentificationType[] SpectrumIdentification { get; set; }
+        IProteinDetectionType ProteinDetection { get; set; }
     }
 
-    public abstract partial class SequenceCollectionType
+    public partial interface ISequenceCollectionType
     {
-        public abstract DBSequenceType[] DBSequence { get; set; }
-        public abstract PeptideType[] Peptide { get; set; }
-        public abstract PeptideEvidenceType[] PeptideEvidence { get; set; }
+        IDBSequenceType[] DBSequence { get; set; }
+        IPeptideType[] Peptide { get; set; }
+        IPeptideEvidenceType[] PeptideEvidence { get; set; }
     }
 }
