@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bio.VCF.ajc" Version="0.0.56" />
+    <PackageReference Include="Proteogenomics" Version="0.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MzLibUtil\MzLibUtil.csproj" />
     <ProjectReference Include="..\Chemistry\Chemistry.csproj" />
     <ProjectReference Include="..\Proteomics\Proteomics.csproj" />
