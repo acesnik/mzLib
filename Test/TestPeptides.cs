@@ -659,7 +659,7 @@ namespace Test
             Peptide a = new Peptide("ACDEFGHIKLMNPQRSTVWY");
             a.AddModification(new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("O"), ModificationSites.D));
             a.AddModification(new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("H"), ModificationSites.D));
-            var products = a.Fragment(FragmentTypes.b | FragmentTypes.y, true);
+            var products = a.Fragment(FragmentTypes.B | FragmentTypes.Y, true);
             foreach (Fragment fragment in products)
             {
             }
@@ -701,7 +701,7 @@ namespace Test
             a.AddModification(new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("O"), ModificationSites.NTerminus));
             a.AddModification(new OldSchoolModification(1), ModificationSites.TerminusC);
             Assert.AreEqual(2, a.ModificationCount());
-            a.Fragment(FragmentTypes.y);
+            a.Fragment(FragmentTypes.Y);
 
             Peptide peptide = new Peptide("[C2H3NO]-LLL-[C2H3NO]");
             ModificationSites ff = ModificationSites.NPep | ModificationSites.PepC;
