@@ -29,16 +29,16 @@ namespace Proteomics.AminoAcidPolymer
         None = 0,
         a = 1 << 0,
         adot = 1 << 1,
-        b = 1 << 2,
+        B = 1 << 2,
         bdot = 1 << 3,
-        c = 1 << 4,
+        C = 1 << 4,
         cdot = 1 << 5,
         x = 1 << 6,
         xdot = 1 << 7,
-        y = 1 << 8,
+        Y = 1 << 8,
         ydot = 1 << 9,
         z = 1 << 10,
-        zdot = 1 << 11,
+        ZDot = 1 << 11,
         Internal = 1 << 12,
         All = (1 << 12) - 1, // Handy way of setting all below the 12th bit
     }
@@ -49,16 +49,16 @@ namespace Proteomics.AminoAcidPolymer
         {
             {FragmentTypes.a, ChemicalFormula.ParseFormula("C-1H-1O-1")},
             {FragmentTypes.adot, ChemicalFormula.ParseFormula("C-1O-1")},
-            {FragmentTypes.b, ChemicalFormula.ParseFormula("H-1")},
+            {FragmentTypes.B, ChemicalFormula.ParseFormula("H-1")},
             {FragmentTypes.bdot, new ChemicalFormula()},
-            {FragmentTypes.c, ChemicalFormula.ParseFormula("NH2")},
+            {FragmentTypes.C, ChemicalFormula.ParseFormula("NH2")},
             {FragmentTypes.cdot, ChemicalFormula.ParseFormula("NH3")},
             {FragmentTypes.x, ChemicalFormula.ParseFormula("COH-1")},
             {FragmentTypes.xdot, ChemicalFormula.ParseFormula("CO")},
-            {FragmentTypes.y, ChemicalFormula.ParseFormula("H")},
+            {FragmentTypes.Y, ChemicalFormula.ParseFormula("H")},
             {FragmentTypes.ydot, ChemicalFormula.ParseFormula("H2")},
             {FragmentTypes.z, ChemicalFormula.ParseFormula("N-1H-2")},
-            {FragmentTypes.zdot, ChemicalFormula.ParseFormula("N-1H-1")}
+            {FragmentTypes.ZDot, ChemicalFormula.ParseFormula("N-1H-1")}
         };
 
         public static IEnumerable<FragmentTypes> GetIndividualFragmentTypes(this FragmentTypes fragmentTypes)

@@ -10,7 +10,7 @@ namespace Proteomics.ProteolyticDigestion
     /// </summary>
     public class Peptide
     {
-        private string _baseSequence;
+        private string _BaseSequence;
 
         internal Peptide(Protein protein, int oneBasedStartResidueInProtein, int oneBasedEndResidueInProtein, int missedCleavages, string peptideDescription = null)
         {
@@ -22,12 +22,12 @@ namespace Proteomics.ProteolyticDigestion
             PeptideDescription = peptideDescription;
         }
 
-        public Protein Protein { get; }// protein from which this peptide came
-        public int OneBasedStartResidueInProtein { get; }// if the first residue in a protein is 1 this is the number of the residue at which the peptide begins
-        public int OneBasedEndResidueInProtein { get; }// if the first residue in a protien is 1 this is the number of the residue at which the peptide ends
-        public int MissedCleavages { get; set; }// the number of missed cleavages this peptide has considerign what protease was supposed to generate it?
+        public Protein Protein { get; } // protein from which this peptide came
+        public int OneBasedStartResidueInProtein { get; } // if the first residue in a protein is 1 this is the number of the residue at which the peptide begins
+        public int OneBasedEndResidueInProtein { get; } // if the first residue in a protien is 1 this is the number of the residue at which the peptide ends
+        public int MissedCleavages { get; set; } // the number of missed cleavages this peptide has considerign what protease was supposed to generate it?
         public string PeptideDescription { get; }
-        public int Length { get; }//how many residues llong the peptide is (calculated from oneBased Starts and End Residues)
+        public int Length { get; } //how many residues long the peptide is (calculated from oneBased Starts and End Residues)
 
         public virtual char PreviousAminoAcid
         {
@@ -49,11 +49,11 @@ namespace Proteomics.ProteolyticDigestion
         {
             get
             {
-                if (_baseSequence == null)
+                if (_BaseSequence == null)
                 {
-                    _baseSequence = Protein.BaseSequence.Substring(OneBasedStartResidueInProtein - 1, Length);
+                    _BaseSequence = Protein.BaseSequence.Substring(OneBasedStartResidueInProtein - 1, Length);
                 }
-                return _baseSequence;
+                return _BaseSequence;
             }
         }
 

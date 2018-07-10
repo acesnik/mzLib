@@ -48,7 +48,7 @@ namespace Test
             var peptide = new Peptide("KQEEQMETEQQNKDEGK");
 
             MzSpectrum MS1 = CreateSpectrum(peptide.GetChemicalFormula(), 300, 2000, 1);
-            MzSpectrum MS2 = CreateMS2spectrum(peptide.Fragment(FragmentTypes.b | FragmentTypes.y, true), 100, 1500);
+            MzSpectrum MS2 = CreateMS2spectrum(peptide.Fragment(FragmentTypes.B | FragmentTypes.Y, true), 100, 1500);
 
             MsDataScan[] Scans = new MsDataScan[2];
             Scans[0] = new MsDataScan(MS1, 1, 1, false, Polarity.Positive, 1.0, new MzRange(300, 2000), "first spectrum", MZAnalyzerType.Unknown, MS1.SumOfAllY, 1, null, "scan=1");

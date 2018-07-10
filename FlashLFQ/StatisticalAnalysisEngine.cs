@@ -28,11 +28,11 @@ namespace FlashLFQ
 
             List<string> output = new List<string>();
             Dictionary<string, List<double[]>> conditionToSamples = new Dictionary<string, List<double[]>>();
-            List<Peptide> peptides = Results.peptideModifiedSequences.Values.ToList();
+            List<Peptide> peptides = Results.PeptideModifiedSequences.Values.ToList();
             int samples = 0;
 
             // sum intensities by biorep (bioreps are the samples for t-testing)
-            var conditions = Results.spectraFiles.GroupBy(p => p.Condition);
+            var conditions = Results.SpectraFiles.GroupBy(p => p.Condition);
 
             foreach (var condition in conditions)
             {

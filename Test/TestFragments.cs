@@ -40,7 +40,7 @@ namespace Test
         [Test]
         public void FragmentNumberToHigh()
         {
-            Assert.Throws<IndexOutOfRangeException>(() => _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, 25).ToList());
+            Assert.Throws<IndexOutOfRangeException>(() => _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, 25).ToList());
         }
 
         [Test]
@@ -54,7 +54,7 @@ namespace Test
         [Test]
         public void FragmentAllBIons()
         {
-            List<Fragment> fragments = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b).ToList();
+            List<Fragment> fragments = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B).ToList();
 
             Assert.AreEqual(19, fragments.Count);
         }
@@ -62,7 +62,7 @@ namespace Test
         [Test]
         public void FragmentAnotherTest()
         {
-            List<Fragment> fragments = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, 1, 2).ToList();
+            List<Fragment> fragments = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, 1, 2).ToList();
 
             Assert.AreEqual(2, fragments.Count);
         }
@@ -71,7 +71,7 @@ namespace Test
         public void FragmentNTermModTest()
         {
             _mockPeptideEveryAminoAcid.AddModification(new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("O"), "lala", ModificationSites.NTerminus));
-            Fragment fragment = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, 1).First();
+            Fragment fragment = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, 1).First();
             Assert.IsTrue(fragment.Modifications.SequenceEqual(new List<OldSchoolModification> { new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("O"), "lala", ModificationSites.NTerminus) }));
         }
 
@@ -82,8 +82,8 @@ namespace Test
             _mockPeptideEveryAminoAcid.AddModification(new OldSchoolModification(2, "mod2", ModificationSites.D));
             _mockPeptideEveryAminoAcid.AddModification(new OldSchoolModification(3, "mod3", ModificationSites.A));
             _mockPeptideEveryAminoAcid.AddModification(new OldSchoolModification(4, "mod4", ModificationSites.Y));
-            Fragment fragment = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, 1).First();
-            Fragment fragmentEnd = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.y, 1).Last();
+            Fragment fragment = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, 1).First();
+            Fragment fragmentEnd = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.Y, 1).Last();
 
             Assert.IsTrue(fragment.Modifications.SequenceEqual(new List<OldSchoolModification> { new OldSchoolModification(3, "mod3", ModificationSites.A) }));
 
@@ -93,16 +93,16 @@ namespace Test
         [Test]
         public void ChemicalFormulaFragment()
         {
-            var a = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, true);
+            var a = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, true);
             // Can break in 19 places
             Assert.AreEqual(19, a.Count());
             Assert.IsTrue(a.Select(b => b.Sequence).Contains("ACDEFG"));
 
-            var y = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.y, true);
+            var y = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.Y, true);
             // Can break in 19 places
             Assert.IsTrue(y.Select(b => b.Sequence).Contains("TVWY"));
 
-            var c = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.b, true);
+            var c = _mockPeptideEveryAminoAcid.Fragment(FragmentTypes.B, true);
 
             Assert.AreEqual(a.First(), c.First());
         }
@@ -112,7 +112,7 @@ namespace Test
         {
             var pep1 = new Peptide("ACDEFG");
             var pep2 = new Peptide("ACTVWY");
-            var ok = pep1.GetSiteDeterminingFragments(pep2, FragmentTypes.b);
+            var ok = pep1.GetSiteDeterminingFragments(pep2, FragmentTypes.B);
             Assert.AreEqual(6, ok.Count());
             Assert.Contains("ACT", ok.Select(b => b.Sequence).ToArray());
         }
@@ -123,16 +123,16 @@ namespace Test
             var pep1 = new Peptide("ACDEFG");
             pep1.AddModification(new OldSchoolChemicalFormulaModification(ChemicalFormula.ParseFormula("H"), ModificationSites.NTerminus));
 
-            Assert.IsTrue(pep1.Fragment(FragmentTypes.b, true).First() is IHasChemicalFormula);
+            Assert.IsTrue(pep1.Fragment(FragmentTypes.B, true).First() is IHasChemicalFormula);
 
             var pep2 = new Peptide("ACDEFG");
             pep2.AddModification(new OldSchoolModification(2, "haha", ModificationSites.NTerminus));
-            Assert.IsFalse(pep2.Fragment(FragmentTypes.b, true).First() is IHasChemicalFormula);
+            Assert.IsFalse(pep2.Fragment(FragmentTypes.B, true).First() is IHasChemicalFormula);
 
             var pep3 = new Peptide("ACDEFG");
             pep3.AddModification(new OldSchoolModification(3, "haha", ModificationSites.D));
 
-            var list = pep3.Fragment(FragmentTypes.b, true).ToList();
+            var list = pep3.Fragment(FragmentTypes.B, true).ToList();
 
             Assert.IsTrue(list[0] is IHasChemicalFormula);
             Assert.IsFalse(list[2] is IHasChemicalFormula);

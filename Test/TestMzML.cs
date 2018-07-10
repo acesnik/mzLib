@@ -631,7 +631,7 @@ namespace Test
 
             MzSpectrum MS1 = CreateSpectrum(peptide.GetChemicalFormula(), 300, 2000, 1);
 
-            MzSpectrum MS2 = CreateMS2spectrum(peptide.Fragment(FragmentTypes.b | FragmentTypes.y, true), 100, 1500);
+            MzSpectrum MS2 = CreateMS2spectrum(peptide.Fragment(FragmentTypes.B | FragmentTypes.Y, true), 100, 1500);
 
             MsDataScan[] Scans = new MsDataScan[2];
 

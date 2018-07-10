@@ -31,7 +31,7 @@ namespace Proteomics.ProteolyticDigestion
             bool containsC = productTypes.Contains(ProductType.C);
             bool containsX = productTypes.Contains(ProductType.X);
             bool containsY = productTypes.Contains(ProductType.Y);
-            bool containsZdot = productTypes.Contains(ProductType.Zdot);
+            bool containsZdot = productTypes.Contains(ProductType.ZDot);
 
             if (containsAdot)
             {

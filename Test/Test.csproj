@@ -61,9 +61,9 @@
     <Compile Include="TestDataFile.cs" />
     <Compile Include="TestFragments.cs" />
     <Compile Include="TestModifications.cs" />
-    <Compile Include="TestPeptides.cs" />
     <Compile Include="DatabaseTests\TestProteinReader.cs" />
     <Compile Include="DatabaseTests\TestProteomicsReadWrite.cs" />
+    <Compile Include="TestPeptides.cs" />
     <Compile Include="TestPtmListLoader.cs" />
     <Compile Include="TestRange.cs" />
     <Compile Include="TestIsolation.cs" />

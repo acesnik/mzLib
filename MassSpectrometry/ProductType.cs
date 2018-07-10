@@ -8,7 +8,7 @@ namespace MassSpectrometry
         C,
         X,
         Y,
-        Zdot,
+        ZDot,
         None
     }
 }
