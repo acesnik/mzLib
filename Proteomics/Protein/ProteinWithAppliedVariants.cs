@@ -36,7 +36,7 @@ namespace Proteomics
             foreach (SequenceVariation variant in uniqueEffectsToApply)
             {
                 // Parse description into
-                string[] vcfFields = variant.Description.Split('\t');
+                string[] vcfFields = variant.Description.Split(null);
                 if (vcfFields.Length < 10) { continue; }
                 string referenceAlleleString = vcfFields[3];
                 string alternateAlleleString = vcfFields[4];

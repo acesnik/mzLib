@@ -69,6 +69,7 @@
     <Compile Include="TestIsolation.cs" />
     <Compile Include="TestSpectra.cs" />
     <Compile Include="TestTolerance.cs" />
+    <Compile Include="TestVariantProtein.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chemistry\Chemistry.csproj">
