@@ -32,7 +32,7 @@ namespace Proteomics.AminoAcidPolymer
         }
 
         public Peptide(AminoAcidPolymer aminoAcidPolymer)
-                            : this(aminoAcidPolymer, true)
+            : this(aminoAcidPolymer, true)
         {
         }
 
@@ -50,12 +50,12 @@ namespace Proteomics.AminoAcidPolymer
         }
 
         public Peptide(AminoAcidPolymer aminoAcidPolymer, int firstResidue, int length)
-                    : this(aminoAcidPolymer, firstResidue, length, true)
+            : this(aminoAcidPolymer, firstResidue, length, true)
         {
         }
 
         public Peptide(AminoAcidPolymer aminoAcidPolymer, int firstResidue, int length, bool includeModifications)
-                    : base(aminoAcidPolymer, firstResidue, length, includeModifications)
+            : base(aminoAcidPolymer, firstResidue, length, includeModifications)
         {
             Parent = aminoAcidPolymer;
             StartResidue = firstResidue;

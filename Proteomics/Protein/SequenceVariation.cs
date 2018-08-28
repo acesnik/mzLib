@@ -75,6 +75,11 @@
                 ^ Description.GetHashCode();
         }
 
+        public string SimpleString()
+        {
+            return OriginalSequence + OneBasedBeginPosition.ToString() + VariantSequence;
+        }
+
         /// <summary>
         /// Determines whether this interval overlaps the queried interval
         /// </summary>
@@ -86,6 +91,26 @@
         }
 
         /// <summary>
+        /// Determines whether this interval overlaps the queried interval
+        /// </summary>
+        /// <param name="segment"></param>
+        /// <returns></returns>
+        internal bool Intersects(ProteolysisProduct segment)
+        {
+            return segment.OneBasedEndPosition >= OneBasedBeginPosition && segment.OneBasedBeginPosition <= OneBasedEndPosition;
+        }
+
+        /// <summary>
+        /// Determines whether this interval overlaps the queried position
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        internal bool Intersects(int pos)
+        {
+            return OneBasedBeginPosition <= pos && pos <= OneBasedEndPosition;
+        }
+
+        /// <summary>
         /// Determines whether this interval includes the queried interval
         /// </summary>
         /// <param name="segment"></param>
@@ -93,6 +118,26 @@
         internal bool Includes(SequenceVariation segment)
         {
             return OneBasedBeginPosition <= segment.OneBasedBeginPosition && OneBasedEndPosition >= segment.OneBasedEndPosition;
+        }
+
+        /// <summary>
+        /// Determines whether this interval includes the queried interval
+        /// </summary>
+        /// <param name="segment"></param>
+        /// <returns></returns>
+        internal bool Includes(ProteolysisProduct segment)
+        {
+            return OneBasedBeginPosition <= segment.OneBasedBeginPosition && OneBasedEndPosition >= segment.OneBasedEndPosition;
+        }
+
+        /// <summary>
+        /// Determines whether this interval overlaps the queried position
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        internal bool Includes(int pos)
+        {
+            return OneBasedBeginPosition <= pos && pos <= OneBasedEndPosition;
         }
     }
 }
