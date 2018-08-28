@@ -33,27 +33,27 @@
         /// <summary>
         /// Beginning position of original sequence to be replaced
         /// </summary>
-        public int OneBasedBeginPosition { get; set; }
+        public int OneBasedBeginPosition { get; }
 
         /// <summary>
         /// End position of original sequence to be replaced
         /// </summary>
-        public int OneBasedEndPosition { get; set; }
+        public int OneBasedEndPosition { get; }
 
         /// <summary>
         /// Original sequence information (optional)
         /// </summary>
-        public string OriginalSequence { get; set; }
+        public string OriginalSequence { get; }
 
         /// <summary>
         /// Variant sequence information (required)
         /// </summary>
-        public string VariantSequence { get; set; }
+        public string VariantSequence { get; }
 
         /// <summary>
         /// Description of this variation (optional)
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; }
 
         public override bool Equals(object obj)
         {

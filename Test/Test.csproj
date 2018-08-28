@@ -153,10 +153,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseTests\LongDeletionSeqVar.xml">
+    <Content Include="DatabaseTests\SeqVarSymbolWeirdness2.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DatabaseTests\CustomSequenceVariants.xml">
+    <Content Include="DatabaseTests\SeqVarSymbolWeirdness.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DatabaseTests\SeqVarLongDeletion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DatabaseTests\SeqVar.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ModificationTests\CommonArtifacts.txt">

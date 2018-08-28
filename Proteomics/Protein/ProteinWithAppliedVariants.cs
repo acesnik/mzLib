@@ -47,11 +47,12 @@ namespace Proteomics
                 return new List<ProteinWithAppliedVariants> { protein };
             }
 
+            bool referenceAdded = false;
             List<ProteinWithAppliedVariants> proteins = new List<ProteinWithAppliedVariants>();
             foreach (SequenceVariation variant in uniqueEffectsToApply)
             {
                 // Parse description into
-                string[] vcfFields = variant.Description.Split(null);
+                string[] vcfFields = variant.Description.Split(new[] { @"\t" }, StringSplitOptions.None);
                 if (vcfFields.Length < 10) { continue; }
                 string referenceAlleleString = vcfFields[3];
                 string alternateAlleleString = vcfFields[4];
@@ -75,9 +76,10 @@ namespace Proteomics
                     if (genotypeFields.TryGetValue("AD", out string adString)) { ad = adString.Split(','); }
 
                     // reference allele
-                    if (gt.Contains("0"))
+                    if (gt.Contains("0") && !referenceAdded)
                     {
                         proteins.Add(new ProteinWithAppliedVariants(BaseSequence, Protein, AppliedSequenceVariations, ProteolysisProducts, OneBasedPossibleLocalizedModifications, i.ToString()));
+                        referenceAdded = true; // only add the reference allele once
                     }
 
                     // alternate allele
