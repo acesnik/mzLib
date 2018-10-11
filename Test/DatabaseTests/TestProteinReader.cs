@@ -232,6 +232,19 @@ namespace Test
         }
 
         [Test]
+        public static void xlmslfdlskdf()
+        {
+            var ok = ProteinDbLoader.LoadProteinXML(@"E:\data\jurkatvariantgptmd.xml", true, DecoyType.None, null, false, null, out var un);
+            var variants = ok.SelectMany(a => a.GetVariantProteins());
+            var p =
+                (from pp in ok
+                 from ppp in pp.GetVariantProteins()
+                 where ppp.OneBasedPossibleLocalizedModifications.Count != pp.OneBasedPossibleLocalizedModifications.Count
+                 select ppp).ToList();
+            int i = 0;
+        }
+
+        [Test]
         public static void XmlTest_2entry()
         {
             ModificationMotif.TryGetMotif("X", out ModificationMotif motif);

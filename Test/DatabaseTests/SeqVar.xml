@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mzLibProteinDb>
-  <modification>ID   N-acetylserine
+  <modification>ID   N-acetylserine on S
 MT   UniProt
 PP   N-terminal.
 DR   RESID; AA0051
@@ -10,7 +10,7 @@ TG   S
 MM   42.010565
 CF   C2H2O
 //</modification>
-  <modification>ID   Phosphoserine
+  <modification>ID   Phosphoserine on S
 MT   UniProt
 PP   Anywhere.
 DR   RESID; AA0037
@@ -20,7 +20,7 @@ TG   S
 MM   79.966331
 CF   HO3P
 //</modification>
-  <modification>ID   Phosphothreonine
+  <modification>ID   Phosphothreonine on T
 MT   UniProt
 PP   Anywhere.
 DR   RESID; AA0038
@@ -30,7 +30,7 @@ TG   T
 MM   79.966331
 CF   HO3P
 //</modification>
-  <modification>ID   Phosphotyrosine
+  <modification>ID   Phosphotyrosine on Y
 MT   UniProt
 PP   Anywhere.
 DR   RESID; AA0039
@@ -777,70 +777,70 @@ CF   HO3P
         <end position="164" />
       </location>
     </feature>
-    <feature type="modified residue" description="N-acetylserine">
+    <feature type="modified residue" description="N-acetylserine on S">
       <location>
         <position position="2" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphothreonine">
+    <feature type="modified residue" description="Phosphothreonine on T">
       <location>
         <position position="80" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphoserine">
+    <feature type="modified residue" description="Phosphoserine on S">
       <location>
         <position position="114" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphoserine">
+    <feature type="modified residue" description="Phosphoserine on S">
       <location>
         <position position="130" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphothreonine">
+    <feature type="modified residue" description="Phosphothreonine on T">
       <location>
         <position position="145" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphoserine">
+    <feature type="modified residue" description="Phosphoserine on S">
       <location>
         <position position="146" />
       </location>
     </feature>
-    <feature type="modified residue" description="Phosphoserine">
+    <feature type="modified residue" description="Phosphoserine on S">
       <location>
         <position position="160" />
       </location>
     </feature>
-    <feature type="sequence variant" description="6 36684451 . G A 171.90 . ANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000244741|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|496/2180|350/495|117/164|| GT:AD:DP:GQ:PL 1/1:0,5:5:15:200,15,0">
+    <feature type="sequence variant" description="6\t36684451\t.\tG\tA\t171.90\t.\tANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000244741|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|496/2180|350/495|117/164||\tGT:AD:DP:GQ:PL\t1/1:0,5:5:15:200,15,0">
       <original>C</original>
       <variation>Y</variation>
       <location>
         <position position="117" />
       </location>
     </feature>
-    <feature type="sequence variant" description="6 36684451 . G A 171.90 . ANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000405375|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|585/2267|350/495|117/164|| GT:AD:DP:GQ:PL 1/1:0,5:5:15:200,15,0">
+    <feature type="sequence variant" description="6\t36684451\t.\tG\tA\t171.90\t.\tANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000405375|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|585/2267|350/495|117/164||\tGT:AD:DP:GQ:PL\t1/1:0,5:5:15:200,15,0">
       <original>C</original>
       <variation>Y</variation>
       <location>
         <position position="117" />
       </location>
     </feature>
-    <feature type="sequence variant" description="6 36684451 . G A 171.90 . ANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000448526|protein_coding|3/4|c.350G&gt;A|p.Cys117Tyr|422/2104|350/495|117/164|| GT:AD:DP:GQ:PL 1/1:0,5:5:15:200,15,0">
+    <feature type="sequence variant" description="6\t36684451\t.\tG\tA\t171.90\t.\tANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000448526|protein_coding|3/4|c.350G&gt;A|p.Cys117Tyr|422/2104|350/495|117/164||\tGT:AD:DP:GQ:PL\t1/1:0,5:5:15:200,15,0">
       <original>C</original>
       <variation>Y</variation>
       <location>
         <position position="117" />
       </location>
     </feature>
-    <feature type="sequence variant" description="6 36684451 . G A 171.90 . ANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000373711|protein_coding|3/4|c.350G&gt;A|p.Cys117Tyr|524/793|350/495|117/164|| GT:AD:DP:GQ:PL 1/1:0,5:5:15:200,15,0">
+    <feature type="sequence variant" description="6\t36684451\t.\tG\tA\t171.90\t.\tANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000373711|protein_coding|3/4|c.350G&gt;A|p.Cys117Tyr|524/793|350/495|117/164||\tGT:AD:DP:GQ:PL\t1/1:0,5:5:15:200,15,0">
       <original>C</original>
       <variation>Y</variation>
       <location>
         <position position="117" />
       </location>
     </feature>
-    <feature type="sequence variant" description="6 36684451 . G A 171.90 . ANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000615513|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|420/2102|350/495|117/164|| GT:AD:DP:GQ:PL 1/1:0,5:5:15:200,15,0">
+    <feature type="sequence variant" description="6\t36684451\t.\tG\tA\t171.90\t.\tANN=A|missense_variant|MODERATE|CDKN1A|gene:ENSG00000124762|transcript|transcript:ENST00000615513|protein_coding|2/3|c.350G&gt;A|p.Cys117Tyr|420/2102|350/495|117/164||\tGT:AD:DP:GQ:PL\t1/1:0,5:5:15:200,15,0">
       <original>C</original>
       <variation>Y</variation>
       <location>

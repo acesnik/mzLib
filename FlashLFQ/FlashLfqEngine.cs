@@ -180,7 +180,7 @@ namespace FlashLFQ
                 Console.WriteLine("Running retention time calibration");
 
             // get all unambiguous peaks for all files
-            var allFeatures = results.Peaks.SelectMany(p => p.Value).Where(p => !p.IsMbrFeature);
+            var allFeatures = results.peaks.SelectMany(p => p.Value).Where(p => !p.IsMbrFeature);
             var allAmbiguousFeatures = allFeatures.Where(p => p.NumIdentificationsByFullSeq > 1).ToList();
             var ambiguousFeatureSeqs = new HashSet<string>(allAmbiguousFeatures.SelectMany(p => p.Identifications.Select(v => v.ModifiedSequence)));
 
@@ -192,7 +192,7 @@ namespace FlashLFQ
 
             foreach (var file in unambiguousPeaksGroupedByFile)
             {
-                var allMbrFeaturesForThisFile = results.Peaks[file.Key].Where(p => p.IsMbrFeature);
+                var allMbrFeaturesForThisFile = results.peaks[file.Key].Where(p => p.IsMbrFeature);
 
                 // get the best (most intense) peak for each peptide in the file
                 Dictionary<string, ChromatographicPeak> pepToBestFeatureForThisFile = new Dictionary<string, ChromatographicPeak>();
@@ -687,7 +687,7 @@ namespace FlashLFQ
                 }
             });
 
-            results.Peaks.Add(fileInfo, chromatographicPeaks.ToList());
+            results.peaks.Add(fileInfo, chromatographicPeaks.ToList());
         }
 
         private void MatchBetweenRunsInitialPeakfinding(SpectraFileInfo fileInfo)
@@ -695,7 +695,7 @@ namespace FlashLFQ
             if (!silent)
                 Console.WriteLine("Finding possible matched peptides for " + fileInfo.FilenameWithoutExtension);
 
-            if (!results.Peaks.ContainsKey(fileInfo) || results.Peaks[fileInfo].Count == 0)
+            if (!results.peaks.ContainsKey(fileInfo) || results.peaks[fileInfo].Count == 0)
                 return;
 
             Tolerance mbrTol = new PpmTolerance(mbrppmTolerance);
@@ -775,15 +775,15 @@ namespace FlashLFQ
                 );
             }
 
-            results.Peaks[fileInfo].AddRange(concurrentBagOfMatchedFeatures);
+            results.peaks[fileInfo].AddRange(concurrentBagOfMatchedFeatures);
         }
 
         private void RunErrorChecking(SpectraFileInfo rawFile)
         {
             // remove all MBR features with intensities lower than the least-intense MS/MS-identified peak in this file
             // this is to remove MBR peaks that matched to noise
-            double minMsmsIdentifiedPeakIntensity = results.Peaks[rawFile].Min(v => v.Intensity);
-            foreach (var peak in results.Peaks[rawFile])
+            double minMsmsIdentifiedPeakIntensity = results.peaks[rawFile].Min(v => v.Intensity);
+            foreach (var peak in results.peaks[rawFile])
             {
                 if (peak.IsMbrFeature && peak.Intensity < minMsmsIdentifiedPeakIntensity)
                 {
@@ -791,11 +791,11 @@ namespace FlashLFQ
                 }
             }
 
-            results.Peaks[rawFile].RemoveAll(p => p.IsMbrFeature && !p.IsotopicEnvelopes.Any());
+            results.peaks[rawFile].RemoveAll(p => p.IsMbrFeature && !p.IsotopicEnvelopes.Any());
 
             if (!silent)
                 Console.WriteLine("Checking errors");
-            var featuresWithSamePeak = results.Peaks[rawFile].Where(v => v.Apex != null).GroupBy(p => p.Apex.IndexedPeak);
+            var featuresWithSamePeak = results.peaks[rawFile].Where(v => v.Apex != null).GroupBy(p => p.Apex.IndexedPeak);
             featuresWithSamePeak = featuresWithSamePeak.Where(p => p.Count() > 1);
 
             // condense duplicate features (features with same sequence and apex peak)
@@ -803,10 +803,10 @@ namespace FlashLFQ
             {
                 duplicateFeature.First().MergeFeatureWith(duplicateFeature, integrate);
             }
-            results.Peaks[rawFile].RemoveAll(p => p.Intensity == -1);
+            results.peaks[rawFile].RemoveAll(p => p.Intensity == -1);
 
             // check for multiple features per peptide within a time window
-            var featuresToMaybeMerge = results.Peaks[rawFile].Where(p => p.NumIdentificationsByFullSeq == 1 && p.Apex != null).GroupBy(p => p.Identifications.First().ModifiedSequence).Where(p => p.Count() > 1);
+            var featuresToMaybeMerge = results.peaks[rawFile].Where(p => p.NumIdentificationsByFullSeq == 1 && p.Apex != null).GroupBy(p => p.Identifications.First().ModifiedSequence).Where(p => p.Count() > 1);
             if (featuresToMaybeMerge.Any())
             {
                 foreach (var group in featuresToMaybeMerge)
@@ -842,13 +842,13 @@ namespace FlashLFQ
                     }
                 }
 
-                results.Peaks[rawFile].RemoveAll(p => p.Intensity == -1);
+                results.peaks[rawFile].RemoveAll(p => p.Intensity == -1);
             }
 
             if (errorCheckAmbiguousMatches)
             {
                 // check for multiple peptides per feature
-                var scansWithMultipleDifferentIds = results.Peaks[rawFile].Where(p => p.NumIdentificationsByFullSeq > 1);
+                var scansWithMultipleDifferentIds = results.peaks[rawFile].Where(p => p.NumIdentificationsByFullSeq > 1);
                 var ambiguousFeatures = scansWithMultipleDifferentIds.Where(p => p.NumIdentificationsByBaseSeq > 1).ToList();
 
                 // handle ambiguous features
@@ -869,7 +869,7 @@ namespace FlashLFQ
                     }
                 }
 
-                results.Peaks[rawFile].RemoveAll(p => p.Intensity == -1);
+                results.peaks[rawFile].RemoveAll(p => p.Intensity == -1);
             }
         }
 

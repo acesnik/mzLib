@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mzLibProteinDb>
-  <modification>
-  ID   N6-acetyllysine
-  MT   UniProt
-  PP   Anywhere.
-  DR   RESID; AA0055
-  DR   PSI-MOD; MOD:00064
-  DR   UniProt; PTM-0190
-  TG   K
-  MM   42.010565
-  CF   C2H2O
-  //
-</modification>
-<modification>
-  ID   N-acetylalanine
-  MT   UniProt
-  PP   N-terminal.
-  DR   RESID; AA0041
-  DR   PSI-MOD; MOD:00050
-  DR   UniProt; PTM-0199
-  TG   A
-  MM   42.010565
-  CF   C2H2O
-  //
-</modification>
+  <modification>ID   N6-acetyllysine on K
+MT   UniProt
+PP   Anywhere.
+DR   RESID; AA0055
+DR   PSI-MOD; MOD:00064
+DR   UniProt; PTM-0190
+TG   K
+MM   42.010565
+CF   C2H2O
+//</modification>
+<modification>ID   N-acetylalanine on A
+MT   UniProt
+PP   N-terminal.
+DR   RESID; AA0041
+DR   PSI-MOD; MOD:00050
+DR   UniProt; PTM-0199
+TG   A
+MM   42.010565
+CF   C2H2O
+//</modification>
   <entry>
     <accession>P78318</accession>
     <name>transcript:ENST00000356413,transcript:ENST00000342206</name>
@@ -285,24 +281,24 @@
         <end position="339" />
       </location>
     </feature>
-    <feature type="modified residue" description="N-acetylalanine">
+    <feature type="modified residue" description="N-acetylalanine on A">
       <location>
         <position position="2" />
       </location>
     </feature>
-    <feature type="modified residue" description="N6-acetyllysine">
+    <feature type="modified residue" description="N6-acetyllysine on K">
       <location>
         <position position="241" />
       </location>
     </feature>
-    <feature type="sequence variant" description="X 70148650 . AGTGAGTGAATTTTGAATCCAGAGCTTTTCAAGCACCTGAAGACTTAAGAGCCCGTATGGTATGTTGGGTAAAATGGCAAATTCACCTCTCATAATTAATTTCCTTCTTAG A . PASS ANN=A|frameshift_variant&amp;splice_acceptor_variant&amp;splice_region_variant&amp;intron_variant|HIGH|IGBP1|MSTRG.22714|transcript|transcript:ENST00000356413|protein_coding|5/7|c.679-109_679del|p.Ala227fs||679/1020|227/339||INFO_REALIGN_3_PRIME GT:AD:DP 1/1:0,6:6">
+    <feature type="sequence variant" description="X\t70148650\t.\tAGTGAGTGAATTTTGAATCCAGAGCTTTTCAAGCACCTGAAGACTTAAGAGCCCGTATGGTATGTTGGGTAAAATGGCAAATTCACCTCTCATAATTAATTTCCTTCTTAG\tA\t.\tPASS\tANN=A|frameshift_variant&amp;splice_acceptor_variant&amp;splice_region_variant&amp;intron_variant|HIGH|IGBP1|MSTRG.22714|transcript|transcript:ENST00000356413|protein_coding|5/7|c.679-109_679del|p.Ala227fs||679/1020|227/339||INFO_REALIGN_3_PRIME\tGT:AD:DP\t1/1:0,6:6">
       <original>ASTSNSSRQERPPVKPFILTRNMAQAKVFGAGYPSLPTMTVSDWYEQHRKYGALPDQGIAKAAPEEFRKAAQQQEEQEEKEEEDDEQTLHRAREWDDWKDTHPRGYGNRQNMG</original>
       <variation>HQLLTHLARRGLQ</variation>
       <location>
         <position position="227" />
       </location>
     </feature>
-    <feature type="sequence variant" description="X 70148650 . AGTGAGTGAATTTTGAATCCAGAGCTTTTCAAGCACCTGAAGACTTAAGAGCCCGTATGGTATGTTGGGTAAAATGGCAAATTCACCTCTCATAATTAATTTCCTTCTTAG A . PASS ANN=A|frameshift_variant&amp;splice_acceptor_variant&amp;splice_region_variant&amp;intron_variant|HIGH|IGBP1|MSTRG.22714|transcript|transcript:ENST00000342206|protein_coding|4/6|c.679-109_679del|p.Ala227fs||679/1020|227/339||INFO_REALIGN_3_PRIME GT:AD:DP 1/1:0,6:6">
+    <feature type="sequence variant" description="X\t70148650\t.\tAGTGAGTGAATTTTGAATCCAGAGCTTTTCAAGCACCTGAAGACTTAAGAGCCCGTATGGTATGTTGGGTAAAATGGCAAATTCACCTCTCATAATTAATTTCCTTCTTAG\tA\t.\tPASS\tANN=A|frameshift_variant&amp;splice_acceptor_variant&amp;splice_region_variant&amp;intron_variant|HIGH|IGBP1|MSTRG.22714|transcript|transcript:ENST00000342206|protein_coding|4/6|c.679-109_679del|p.Ala227fs||679/1020|227/339||INFO_REALIGN_3_PRIME\tGT:AD:DP\t1/1:0,6:6">
       <original>ASTSNSSRQERPPVKPFILTRNMAQAKVFGAGYPSLPTMTVSDWYEQHRKYGALPDQGIAKAAPEEFRKAAQQQEEQEEKEEEDDEQTLHRAREWDDWKDTHPRGYGNRQNMG</original>
       <variation>HQLLTHLARRGLQ</variation>
       <location>
