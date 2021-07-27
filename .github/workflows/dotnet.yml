@@ -27,15 +27,14 @@ jobs:
     - name: Test
       run: |
         cd mzLib
-        dotnet test --no-build --verbosity normal Test/Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='coverage1.xml' /p:Exclude="./Test/*.cs%2c./TestFlashLFQ/*.cs"
-        dotnet test --no-build --verbosity normal TestFlashLFQ/TestFlashLFQ.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='coverage2.xml' /p:Exclude="./Test/*.cs%2c./TestFlashLFQ/*.cs"
+        dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='coverage.xml' /p:Exclude="./Test/*.cs%2c./TestFlashLFQ/*.cs"
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_KEY }}
         directory: ./coverage/reports/
         fail_ci_if_error: true
-        files: ./coverage1.xml,./coverage2.xml
+        files: ./coverage.xml
         flags: unittests
         name: codecov-umbrella
         path_to_write_report: ./coverage/codecov_report.txt
