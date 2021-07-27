@@ -27,8 +27,7 @@ jobs:
     - name: Test
       run: |
         cd mzLib
-        dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='./coverage.xml' /p:Exclude="./Test/*.cs%2c./TestFlashLFQ/*.cs"
-        ls
+        dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='../coverage.xml' /p:Exclude="./Test/*.cs%2c./TestFlashLFQ/*.cs"
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
       with:
