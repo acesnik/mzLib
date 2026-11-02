@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0-windows</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <!-- Annotations only, not warnings. Test code already writes `string?` in ~200 places and the
          compiler was ignoring every one of them (CS8632). This makes those annotations mean what
          they say without turning on the nullability warnings, which would add hundreds more. Safe
@@ -39,7 +39,6 @@
     <ProjectReference Include="..\Omics\Omics.csproj" />
     <ProjectReference Include="..\SpectralAveraging\SpectralAveraging.csproj" />
     <ProjectReference Include="..\MzLibUtil\MzLibUtil.csproj" />
-    <ProjectReference Include="..\mzPlot\mzPlot.csproj" />
     <ProjectReference Include="..\Proteomics\Proteomics.csproj" />
     <ProjectReference Include="..\SpectralAveraging\SpectralAveraging.csproj" />
     <ProjectReference Include="..\Readers\Readers.csproj" />

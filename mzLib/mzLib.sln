@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleEvidenceModel", "Samp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticalModels", "StatisticalModels\StatisticalModels.csproj", "{CDB46347-F094-4FE3-94F2-BA33273EACAB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMzPlot", "TestMzPlot\TestMzPlot.csproj", "{DF1532C8-7787-4774-9B34-0FF6D19BFC67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -305,6 +307,18 @@ Global
 		{CDB46347-F094-4FE3-94F2-BA33273EACAB}.TestAndRelease|Any CPU.Build.0 = Release|AnyCPU
 		{CDB46347-F094-4FE3-94F2-BA33273EACAB}.TestAndRelease|x64.ActiveCfg = Release|x64
 		{CDB46347-F094-4FE3-94F2-BA33273EACAB}.TestAndRelease|x64.Build.0 = Release|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Debug|Any CPU.ActiveCfg = Debug|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Debug|Any CPU.Build.0 = Debug|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Debug|x64.ActiveCfg = Debug|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Debug|x64.Build.0 = Debug|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Release|Any CPU.ActiveCfg = Release|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Release|Any CPU.Build.0 = Release|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Release|x64.ActiveCfg = Release|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.Release|x64.Build.0 = Release|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.TestAndRelease|Any CPU.ActiveCfg = Release|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.TestAndRelease|Any CPU.Build.0 = Release|AnyCPU
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.TestAndRelease|x64.ActiveCfg = Release|x64
+		{DF1532C8-7787-4774-9B34-0FF6D19BFC67}.TestAndRelease|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

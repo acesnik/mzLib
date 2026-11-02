@@ -28,14 +28,22 @@ jobs:
       run: cd mzLib && dotnet build --no-restore /p:Platform="Any CPU"
     - name: Build (Test)
       run: cd mzLib && dotnet build --no-restore ./Test/Test.csproj
+    # mzPlot is WPF, so its tests are a separate Windows-only project and Test can run anywhere.
+    - name: Build (TestMzPlot)
+      run: cd mzLib && dotnet build --no-restore ./TestMzPlot/TestMzPlot.csproj
     # A '.' in a test name is spliced into the fully-qualified name, which Test Explorer / vstest
     # split on '.' -- fragmenting the tree into phantom nodes that cannot be expanded or run.
     # Runs before the suite so a naming regression fails in seconds rather than after the full run.
     - name: Check test name hygiene
       shell: pwsh
       run: ./.github/scripts/Check-TestNameHygiene.ps1 -Project mzLib/Test/Test.csproj -NoBuild
+    - name: Check test name hygiene (TestMzPlot)
+      shell: pwsh
+      run: ./.github/scripts/Check-TestNameHygiene.ps1 -Project mzLib/TestMzPlot/TestMzPlot.csproj -NoBuild
     - name: Add coverlet collector (Test)
       run: cd mzLib && dotnet add Test/Test.csproj package coverlet.collector -v 6.0.2
+    - name: Add coverlet collector (TestMzPlot)
+      run: cd mzLib && dotnet add TestMzPlot/TestMzPlot.csproj package coverlet.collector -v 6.0.2
     - name: Test
       # Exclude live external-service tests (Koina, UniProt, PRIDE) from the required run; they run in
       # the separate, non-blocking external-service job below.
@@ -46,6 +54,8 @@ jobs:
       # inactivity deadline they cost minutes apiece and pushed the job past its budget. See the
       # runsettings file for why VSTest trait filtering and NUnit categories disagree here.
       run: cd mzLib && dotnet test --no-build --verbosity normal --settings ./Test/required.runsettings --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura ./Test/Test.csproj
+    - name: Test (TestMzPlot)
+      run: cd mzLib && dotnet test --no-build --verbosity normal --settings ./Test/required.runsettings --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=cobertura ./TestMzPlot/TestMzPlot.csproj
     - name: Upload coverage to Codecov
       # token/files/verbose are action INPUTS and must sit under `with:`. They were previously under
       # `env:`, where they became ordinary lowercase environment variables that the action never reads

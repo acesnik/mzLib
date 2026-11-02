@@ -12,7 +12,7 @@
     <!-- Only for projects that ship. An XML documentation file for a test or benchmark assembly
          serves nobody, and generating it there was surfacing 61 of the 95 doc-comment warnings in
          code no consumer ever sees. -->
-    <GenerateDocumentationFile Condition="'$(MSBuildProjectName)' != 'Test' and '$(MSBuildProjectName)' != 'Development'">true</GenerateDocumentationFile>
+    <GenerateDocumentationFile Condition="'$(MSBuildProjectName)' != 'Test' and '$(MSBuildProjectName)' != 'TestMzPlot' and '$(MSBuildProjectName)' != 'Development'">true</GenerateDocumentationFile>
 
     <!-- Turning documentation generation on turns on nine doc-comment diagnostics. Two are
          suppressed, on the line between "incomplete" and "wrong":
