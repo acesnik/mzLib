@@ -157,7 +157,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         /// <param name="outfile2"></param>
         [Test]
         [TestCase("testFileWMS2.raw", "a.mzML", "aa.mzML")]
-        [TestCase("small.raw", "a.mzML", "aa.mzML")]
+        [TestCase("small.RAW", "a.mzML", "aa.mzML")]
         [TestCase("05-13-16_cali_MS_60K-res_MS.raw", "a.mzML", "aa.mzML")]
         public static void TestLoadAllStaticDataRawFileReader(string infile, string outfile1, string outfile2)
         {
@@ -191,7 +191,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         [Test]
         public void TestThermoGetSourceFile()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var reader = MsDataFileReader.GetDataFile(path);
             SourceFile sf = reader.GetSourceFile();
             NUnit.Framework.Assert.That(sf.NativeIdFormat, Is.EqualTo(@"Thermo nativeID format"));
@@ -206,7 +206,7 @@ namespace Test.FileReadingTests.SpectraFileReading
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var thermoDynamic1 = MsDataFileReader.GetDataFile(path1);
             thermoDynamic1.InitiateDynamicConnection();
 
@@ -239,7 +239,7 @@ namespace Test.FileReadingTests.SpectraFileReading
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var thermoDynamic1 = MsDataFileReader.GetDataFile(path1).LoadAllStaticData();
             thermoDynamic1.InitiateDynamicConnection();
 
@@ -272,7 +272,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         /// <param name="infile"></param>
         [Test]
         [TestCase("testFileWMS2.raw")]
-        [TestCase("small.raw")]
+        [TestCase("small.RAW")]
         [TestCase("05-13-16_cali_MS_60K-res_MS.raw")]
         public static void TestPeakFilteringRawFileReader(string infile)
         {

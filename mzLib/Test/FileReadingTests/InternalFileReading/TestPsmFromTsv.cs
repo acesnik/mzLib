@@ -178,7 +178,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
         [Test]
         [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_newVersion.psmtsv")]
         public static void ReadOGlycoPsms_LegacyVersion(string psmFile)
         {
             // In this test, we are testing that the glyco-specific fields are read correctly from older versions of the oglyco.psmtsv file.
@@ -193,7 +193,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
         [Test]
         [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_newVersion.psmtsv")]
         [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_Glyco(string psmFile)
         {
@@ -213,7 +213,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
         [Test]
         [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_newVersion.psmtsv")]
         [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_Generic(string psmFile)
         {
@@ -233,7 +233,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
         [Test]
         [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_newVersion.psmtsv")]
         [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_AsPsm(string psmFile)
         {
@@ -253,7 +253,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
         [Test]
         [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_newVersion.psmtsv")]
         public static void GlcyoPsmFromTsv_ModifiedPsmFunction(string path)
         {
             // Test that the GlycoPsmFromTsv modified PSM constructor works as intended

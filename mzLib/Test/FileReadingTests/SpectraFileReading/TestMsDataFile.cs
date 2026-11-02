@@ -261,7 +261,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         {
             //this original mzML has four scans including 1 MS1 and three MS2s. The second MS2 scan does
             //not have mz or intensity values. We skip this scan when reading.
-            string dataFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", @"badScan7192.mzml");
+            string dataFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", @"badScan7192.mzML");
 
             var reader = MsDataFileReader.GetDataFile(dataFilePath);
             reader.LoadAllStaticData();

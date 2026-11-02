@@ -16,7 +16,7 @@ public class TestReaderCreator
         // assert that all read successfully, and that an unknown file path returns null.
         string[] filePaths = new string[]
         {
-            "small.raw",
+            "small.RAW",
             "tester.mgf",
             "SmallCalibratibleYeast.mzml",
             "humanInsulin_ms1.feature",

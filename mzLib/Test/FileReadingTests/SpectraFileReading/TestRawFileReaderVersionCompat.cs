@@ -31,7 +31,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         // MS1-only, MS1/MS2, FAIMS (compensation voltage), EThcD, and scan-description data.
         private static readonly string[] RawFiles =
         {
-            "small.raw",
+            "small.RAW",
             "testFileWMS2.raw",
             "05-13-16_cali_MS_60K-res_MS.raw",
             "sliced_ethcd.raw",

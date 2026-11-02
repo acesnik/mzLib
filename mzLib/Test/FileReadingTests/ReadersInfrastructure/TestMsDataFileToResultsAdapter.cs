@@ -79,7 +79,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path1 = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var factoryConstruction = FileReader.ReadFile<MsDataFileToResultFileAdapter>(path1);
             factoryConstruction.InitiateDynamicConnection();
 
@@ -106,8 +106,8 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         }
 
         [Test]
-        [TestCase("small.raw", "a.mzML",  0)]
-        [TestCase("small.raw", "a.mzML",  1)]
+        [TestCase("small.RAW", "a.mzML",  0)]
+        [TestCase("small.RAW", "a.mzML",  1)]
         public void TestWriting(string filePath, string outfile, int loop)
         {
             var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", filePath);
@@ -147,7 +147,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [Test]
         public void TestWritingNoExtension()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var outfile = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "a");
             var dataFile = FileReader.ReadFile<MsDataFileToResultFileAdapter>(path);
             dataFile.LoadAllStaticData();
@@ -171,7 +171,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [Test]
         public void TestWritingRefusesTheOtherSpectraFormatsItReads()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var dataFile = FileReader.ReadFile<MsDataFileToResultFileAdapter>(path);
             dataFile.LoadResults();
 
@@ -210,7 +210,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [Test]
         public void TestWritingMgfWritesMgfRatherThanMzml()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var outfile = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "adapterOut.mgf");
             var dataFile = FileReader.ReadFile<MsDataFileToResultFileAdapter>(path);
             dataFile.LoadResults();
@@ -242,7 +242,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [TestCase("notes.txt")]
         public void TestWritingAppendsToNamesThatAreNotSpectraFormats(string outfileName)
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.raw");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", "small.RAW");
             var outfile = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", outfileName);
             var dataFile = FileReader.ReadFile<MsDataFileToResultFileAdapter>(path);
             dataFile.LoadResults();

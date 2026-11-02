@@ -264,7 +264,7 @@ namespace Test.FlashLFQ
 
             var myDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory, "FlashLFQ", "TestData");
             var pathOfIdentificationFile = Path.Combine(myDirectory, psmFilename);
-            var pathOfMzml = Path.Combine(myDirectory, "SmallCalibratibleYeast.mzML");
+            var pathOfMzml = Path.Combine(myDirectory, "SmallCalibratibleYeast.mzml");
             SpectraFileInfo sfi = new SpectraFileInfo(pathOfMzml, "A", 1, 1, 1);
 
             PsmFromTsvFile results = new PsmFromTsvFile(pathOfIdentificationFile);

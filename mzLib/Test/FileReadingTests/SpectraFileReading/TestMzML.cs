@@ -1449,10 +1449,10 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
-        [TestCase("tester.mzml")]
+        [TestCase("tester.mzML")]
         [TestCase("SmallCalibratibleYeast.mzml")]
-        [TestCase("small.raw", true)]
-        [TestCase("small.raw", false)]
+        [TestCase("small.RAW", true)]
+        [TestCase("small.RAW", false)]
         [TestCase("testFileWMS2.raw", true)]
         [TestCase("testFileWMS2.raw", false)]
         [TestCase("05-13-16_cali_MS_60K-res_MS.raw", true)]

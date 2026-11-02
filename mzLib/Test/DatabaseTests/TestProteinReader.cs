@@ -216,7 +216,7 @@ namespace Test.DatabaseTests
         {
             string directory = Path.Combine(Path.Combine(TestContext.CurrentContext.TestDirectory, "DatabaseTests"));
 
-            var ok = ProteinDbLoader.LoadProteinFasta(Path.Combine(directory, @"isoform.fasta.gz"),
+            var ok = ProteinDbLoader.LoadProteinFasta(Path.Combine(directory, @"Isoform.fasta.gz"),
                 true, DecoyType.Reverse, false, out var a,
                 ProteinDbLoader.UniprotAccessionRegex, ProteinDbLoader.UniprotFullNameRegex, ProteinDbLoader.UniprotAccessionRegex, ProteinDbLoader.UniprotGeneNameRegex,
                 ProteinDbLoader.UniprotOrganismRegex);
