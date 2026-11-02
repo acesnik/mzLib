@@ -357,7 +357,7 @@ namespace Test.DatabaseTests
                     Console.SetOut(sw);
                     Loaders.UpdatePsiModObo(psiModOboLocation);
 
-                    string expected = "psi-mod.obo database did not exist, writing to disk\r\n";
+                    string expected = "psi-mod.obo database did not exist, writing to disk" + Environment.NewLine;
                     Assert.AreEqual(expected, sw.ToString());
                 }
 
@@ -366,7 +366,7 @@ namespace Test.DatabaseTests
                     Console.SetOut(sw);
                     Loaders.UpdatePsiModObo(psiModOboLocation);
 
-                    string expected = "psi-mod.obo database is up to date, doing nothing\r\n";
+                    string expected = "psi-mod.obo database is up to date, doing nothing" + Environment.NewLine;
                     Assert.AreEqual(expected, sw.ToString());
                 }
 
@@ -378,7 +378,7 @@ namespace Test.DatabaseTests
                     Console.SetOut(sw);
                     Loaders.UpdatePsiModObo(psiModOboLocation);
 
-                    string expected = "psi-mod.obo database updated, saving old version as backup\r\n";
+                    string expected = "psi-mod.obo database updated, saving old version as backup" + Environment.NewLine;
                     Assert.AreEqual(expected, sw.ToString());
                 }
             }

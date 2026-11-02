@@ -136,7 +136,7 @@ namespace Test.Omics.Modifications
             Assert.AreEqual(0, mods.Count());
             Assert.AreEqual(1, errors2.Count);
             Assert.IsFalse(errors2.Single().Item1.ValidModification);
-            Assert.IsTrue(errors2.Single().Item2.Split(new[] { "\r\n" }, StringSplitOptions.None).Any(x => x.StartsWith("#"))); // has an error comment
+            Assert.IsTrue(errors2.Single().Item2.Split(new[] { Environment.NewLine }, StringSplitOptions.None).Any(x => x.StartsWith("#"))); // has an error comment
         }
 
         [Test]
