@@ -413,6 +413,7 @@ namespace Test.Omics.BioPolymerGroupTests
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_LabelFree_WithConditions_WithIntensities_ContainsIntensityColumns()
         {
             // Files that don't exist trigger SILAC experimental design path, which uses filename
@@ -452,6 +453,7 @@ namespace Test.Omics.BioPolymerGroupTests
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_LabelFree_UndefinedConditions_WithIntensities_ContainsIntensityColumns()
         {
             var file1 = new SpectraFileInfo(@"C:\sample_A.raw", "", 0, 1, 0);
@@ -484,6 +486,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// 127N is not, so both label forms are covered.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_Isobaric_CountColumnsAreOnePerFile()
         {
             var sample126 = new IsobaricQuantSampleInfo(@"C:\fileA.raw", "Control", 1, 1, 0, 1, "126", 126.0, false) { SampleName = "Patient7" };
@@ -567,6 +570,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// from SampleGroupLabels.ForSample and this goes red on exactly that.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_Isobaric_SixFractionsOfOnePlexKeepDistinctColumns()
         {
             var fractions = Enumerable.Range(1, 6)
@@ -596,6 +600,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// plex each column is — which the directory says and an ordinal does not.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_Isobaric_SameSampleInSameNamedFilesWidensByDirectory()
         {
             var plexA = new IsobaricQuantSampleInfo(@"C:\PlexA\run.raw", "Control", 1, 1, 0, 1, "126", 126.127, false) { SampleName = "Patient7" };
@@ -667,6 +672,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// column's presence and its emptiness can still disagree.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_QuantifiedRunWithNoMeasuredIntensity_KeepsEmptyIntensityColumns()
         {
             var file = new SpectraFileInfo(@"C:\gated.raw", "Control", 0, 0, 0);
@@ -703,6 +709,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// two sections are widened independently rather than sharing one pass.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GetTabSeparatedHeader_Isobaric_SameNamedFilesGetDistinctCountColumns()
         {
             var rep1 = new IsobaricQuantSampleInfo(@"C:\Rep1\sample.raw", "Control", 1, 1, 0, 1, "126", 126.0, false);

@@ -23,6 +23,7 @@ namespace Test.Omics.SampleInfo
             => new IsobaricQuantSampleInfo(path, "Control", 1, 1, 0, 1, label, mz, isReference);
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Add_KeysByFileNameWithExtension_NotByFullPath()
         {
             var design = new SampleExperimentalDesign();
@@ -70,6 +71,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Add_PreservesChannelOrder()
         {
             const string path = @"C:\Data\tmt.raw";
@@ -115,6 +117,7 @@ namespace Test.Omics.SampleInfo
         /// FromSamples — the entry point a design projected from SDRF will use — refuses it too.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_RejectsOneChannelListedTwice()
         {
             const string path = @"C:\Data\tmt.raw";
@@ -130,6 +133,7 @@ namespace Test.Omics.SampleInfo
         /// second entry took the first one's column.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Add_AndFromSamples_RejectOneLabelFreeSampleListedTwice()
         {
             const string path = @"C:\Data\run7.raw";
@@ -184,6 +188,7 @@ namespace Test.Omics.SampleInfo
         /// rule of a Dictionary's values, whose order is not guaranteed.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void DescribeRepeatedSample_ListsTheNamesInOrdinalOrder_NotArrivalOrder()
         {
             var samples = new ISampleInfo[]
@@ -248,6 +253,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void LabelFree_GivesOneSamplePerFile()
         {
             var files = new[]
@@ -280,6 +286,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_GroupsIsobaricChannelsByFile()
         {
             const string file1 = @"C:\Data\plex1.raw";
@@ -304,6 +311,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_PreservesInputOrderWithinAFile()
         {
             const string path = @"C:\Data\plex.raw";
@@ -322,6 +330,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_HandlesLabelFreeSamplesToo()
         {
             var samples = new ISampleInfo[]
@@ -372,6 +381,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Add_RejectsAPathWithNoFileNameComponent()
         {
             var design = new SampleExperimentalDesign();
@@ -410,6 +420,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_IsCaseInsensitiveAcrossFiles()
         {
             // Two spellings of one file are one file, matching the lookup the engine will do.
@@ -426,6 +437,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_RejectsTwoDifferentFilesWithTheSameName()
         {
             // Same basename, different directories. Grouping them would put one run's channels in the
@@ -446,6 +458,7 @@ namespace Test.Omics.SampleInfo
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void FromSamples_StillGroupsChannelsThatShareOnePath()
         {
             // The case the rejection must not catch: many channels, one file.

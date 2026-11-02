@@ -519,6 +519,7 @@ public sealed class TestMslStreamedReads
 	/// without throwing.
 	/// </summary>
 	[Test]
+	[Platform("Win", Reason = "UNC paths exist only on Windows.")]
 	public void IsOnLocalFixedDrive_UncPathIsNotLocal()
 	{
 		Assert.That(MslReader.IsOnLocalFixedDrive(@"\\server\share\library.msl"), Is.False);

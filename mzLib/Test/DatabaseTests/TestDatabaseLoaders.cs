@@ -594,6 +594,7 @@ namespace Test.DatabaseTests
         /// scratch file would report "file in use" and bury the real cause.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Holding a file open blocks deleting it only on Windows.")]
         public void DownloadContentFailedCleanupStillSurfacesTheOriginalFailure()
         {
             string scratch = FreshScratchDirectory();

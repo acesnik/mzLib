@@ -174,6 +174,7 @@ public class FlashLfqObservationsTests
     [TestCase("fractions of one sample, quantified as two samples")]
     [TestCase("two samples, quantified as fractions of one sample")]
     [TestCase("replicates of one sample, quantified as fractions of one replicate")]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void FromResultsRefusesADesignThatGroupsTheFilesOtherwiseThanFlashLfqDid(string mismatch)
     {
         var (flashLfq, runs) = mismatch switch
@@ -197,6 +198,7 @@ public class FlashLfqObservationsTests
 
     /// <summary>The same grouping under other names is taken: the design's sample names and fraction numbers are its own.</summary>
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void FromResultsTakesFlashLfqsGroupingUnderOtherNames()
     {
         var files = new[]
@@ -382,6 +384,7 @@ public class FlashLfqObservationsTests
     [TestCase(double.NaN, DetectionType.MSMSAmbiguousPeakfinding)]
     [TestCase(-1.0, DetectionType.MSMSIdentifiedButNotQuantified)]
     [TestCase(double.NaN, DetectionType.NotDetected)]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void AnInvalidIntensityIsRefusedFromResults(double intensity, DetectionType detectionType)
     {
         var (results, runs) = EveryDetectionType();

@@ -147,6 +147,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
         }
 
         [Test]
+        [Platform("Win", Reason = "isodeclib ships for Windows only.")]
         public void MultipleDecon_SingleWrappedIsoDec_MatchesDirectIsoDec()
         {
             var spectrum = LoadProteoformSpectrum();
@@ -166,6 +167,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
         // ?? 4. Results from all sub-algorithms are concatenated ???????????????
 
         [Test]
+        [Platform("Win", Reason = "isodeclib ships for Windows only.")]
         public void MultipleDecon_ClassicAndIsoDec_CountIsExactlySumOfIndividual()
         {
             // Concat performs no deduplication. The combined count must equal
@@ -184,6 +186,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
         }
 
         [Test]
+        [Platform("Win", Reason = "isodeclib ships for Windows only.")]
         public void MultipleDecon_ThreeAlgorithms_ConcatenatesAll()
         {
             var spectrum = LoadProteoformSpectrum();

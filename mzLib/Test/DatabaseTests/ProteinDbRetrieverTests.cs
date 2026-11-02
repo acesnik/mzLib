@@ -443,8 +443,8 @@ public class ProteinDbRetrieverTests
     /// </summary>
     [Test]
     [TestCase("../../evil")]
-    [TestCase(@"..\..\evil")]
-    [TestCase("organism_id:9606")]
+    [TestCase(@"..\..\evil", IncludePlatform = "Win")]
+    [TestCase("organism_id:9606", IncludePlatform = "Win")]
     public void RetrieveProteome_UnsafeProteomeId_ThrowsArgumentExceptionAndWritesNothing(string proteomeID)
     {
         var handler = ProteomeHandler(4, OneEntryUniProtFasta);

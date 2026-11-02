@@ -16,6 +16,7 @@ namespace Test.FileReadingTests.SpectraFileReading
 {
     [TestFixture]
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
     public class TestTimsTofFileReader
     {
         // The timsTOF_snippet.d contains DDA_PASEF data

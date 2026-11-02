@@ -360,6 +360,7 @@ public class ObservationTableTests
     }
 
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void RunsFromALabelFreeDesignUseTheQuantifiedTablesSampleLabel()
     {
         var runs = ObservationRun.FromSampleInfos(new[]
@@ -371,6 +372,7 @@ public class ObservationTableTests
     }
 
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void RunsComeFromThePipelinesExperimentalDesign()
     {
         // Two fractions of one sample, a second technical replicate of it, and a second sample: grouping is the design's.
@@ -398,6 +400,7 @@ public class ObservationTableTests
     }
 
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void AnIsobaricChannelIsRefusedBecauseTheTableIsOneValuePerFile()
     {
         var channel = new IsobaricQuantSampleInfo(@"C:\data\plex1.raw", "ctrl", 0, 0, 0, 1, "126", 126.127726, false);

@@ -19,6 +19,7 @@ namespace Test.Omics.SampleInfo
         /// Critical: Ensures sample metadata is properly stored for quantification.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Constructor_SetsAllProperties()
         {
             var sample = new SpectraFileInfo(
@@ -40,11 +41,11 @@ namespace Test.Omics.SampleInfo
         /// Critical: Used for output file column headers and display.
         /// </summary>
         [Test]
-        [TestCase(@"C:\Folder\MyFile.raw", "MyFile")]
-        [TestCase(@"C:\Data\sample.test.raw", "sample.test")]
-        [TestCase(@"C:\Data\sample.mzML", "sample")]
-        [TestCase(@"C:\Data\samplefile", "samplefile")]
-        [TestCase(@"\\server\share\data\sample.raw", "sample")]
+        [TestCase(@"C:\Folder\MyFile.raw", "MyFile", IncludePlatform = "Win")]
+        [TestCase(@"C:\Data\sample.test.raw", "sample.test", IncludePlatform = "Win")]
+        [TestCase(@"C:\Data\sample.mzML", "sample", IncludePlatform = "Win")]
+        [TestCase(@"C:\Data\samplefile", "samplefile", IncludePlatform = "Win")]
+        [TestCase(@"\\server\share\data\sample.raw", "sample", IncludePlatform = "Win")]
         [TestCase("/home/user/data/sample.raw", "sample")]
         public void FilenameWithoutExtension_ExtractsCorrectly(string path, string expected)
         {
@@ -57,9 +58,9 @@ namespace Test.Omics.SampleInfo
         /// Critical: Used in output files and UI display.
         /// </summary>
         [Test]
-        [TestCase(@"C:\Data\sample1.raw", "sample1.raw")]
-        [TestCase(@"C:\Data\sample.mzML", "sample.mzML")]
-        [TestCase(@"C:\Very\Deep\Path\file.raw", "file.raw")]
+        [TestCase(@"C:\Data\sample1.raw", "sample1.raw", IncludePlatform = "Win")]
+        [TestCase(@"C:\Data\sample.mzML", "sample.mzML", IncludePlatform = "Win")]
+        [TestCase(@"C:\Very\Deep\Path\file.raw", "file.raw", IncludePlatform = "Win")]
         public void ToString_ReturnsFilenameWithExtension(string path, string expected)
         {
             var sample = new SpectraFileInfo(path, "Control", 1, 1, 0);

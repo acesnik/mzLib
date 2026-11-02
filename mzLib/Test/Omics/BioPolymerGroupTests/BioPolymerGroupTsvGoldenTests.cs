@@ -166,6 +166,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// design, a file is both the count section and the sample.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void NoExperimentalDesign_HeaderAndRowAreUnchanged()
         {
             AssertTsv(BuildNoDesignGroup(),
@@ -182,6 +183,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// its position.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void LabelFreeWithIntensities_HeaderAndRowAreUnchanged()
         {
             AssertTsv(BuildLabelFreeGroup(),
@@ -212,6 +214,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// are still named by it alone.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void Isobaric_CountsAreOncePerFileAndIntensitiesOncePerChannel()
         {
             AssertTsv(BuildIsobaricGroup(),
@@ -257,6 +260,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// construction: the unquantified condition contributes empty fields instead of vanishing.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void GroupMissingIntensityInOneCondition_StillMatchesHeaderWidth()
         {
             var fileA = new SpectraFileInfo(FileA, "Control", 0, 0, 0);

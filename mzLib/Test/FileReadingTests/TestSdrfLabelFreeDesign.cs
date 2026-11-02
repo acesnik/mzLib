@@ -367,6 +367,7 @@ namespace Test.FileReadingTests
         /// missing because its file was not searched.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void RowsForFilesNotSearchedAreDroppedAndTheNumbersOfTheRestKept()
         {
             var sdrf = Document(("a1.raw", "A", "1", "1", "1"), ("a2.raw", "A", "2", "1", "1"), ("a3.raw", "A", "3", "1", "1"));
@@ -429,6 +430,7 @@ namespace Test.FileReadingTests
         /// same-named file is never defined and quantification is skipped.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void TwoSearchedFilesSharingANameAreRefused()
         {
             var sdrf = Document(("x.raw", "A", "1", "1", "1"), ("y.raw", "A", "2", "1", "1"));

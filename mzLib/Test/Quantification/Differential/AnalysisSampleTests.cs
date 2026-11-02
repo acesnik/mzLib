@@ -175,6 +175,7 @@ public class AnalysisSampleTests
     }
 
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void ASampleWhoseRunsDisagreeOnItsConditionIsRefusedAndNamed()
     {
         var design = Design(

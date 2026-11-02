@@ -116,6 +116,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// "Rep2_sample" says which file the column came from and "sample_2" does not.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void ACollisionWidensBeforeItSuffixes()
         {
             var (identities, labels) = Input(
@@ -203,6 +204,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// A channel the design names is labelled by that name, then its file, then its channel.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void ForSample_IsobaricChannelTheDesignNames_IsSampleFileAndChannel()
         {
             Assert.That(SampleGroupLabels.ForSample(Channel("Control", 1, "Patient7")), Is.EqualTo("Patient7_plex1_126"));
@@ -219,6 +221,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// isobaric run the moment it upgraded. A whitespace-only name counts as no name.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void ForSample_IsobaricChannelWithNoSampleName_KeepsItsFileAndChannelLabel()
         {
             Assert.Multiple(() =>
@@ -236,6 +239,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// it, and one-based condition and replicate otherwise.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void ForSample_LabelFree_IsFileNameOrOneBasedConditionAndReplicate()
         {
             var file = new SpectraFileInfo(@"C:\data\run7.raw", "Control", 0, 0, 0);

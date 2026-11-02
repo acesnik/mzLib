@@ -35,6 +35,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestLoadAllStaticDataCentroid()
         {
             MsDataFile brukerData = MsDataFileReader.GetDataFile(_centroidPath).LoadAllStaticData();
@@ -60,6 +61,7 @@ namespace Test.FileReadingTests.SpectraFileReading
 
         [Test]
 
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestLoadAllStaticDataProfile()
         {
             MsDataFile brukerData = MsDataFileReader.GetDataFile(_profilePath).LoadAllStaticData();
@@ -74,6 +76,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestLoadAllStaticDataProfileAndCentroid()
         {
             MsDataFile brukerData = MsDataFileReader.GetDataFile(_profileAndCentroid).LoadAllStaticData();
@@ -99,6 +102,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestDynamicConnection()
         {
             MsDataFile brukerReader = MsDataFileReader.GetDataFile(_centroidPath);
@@ -118,6 +122,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestDynamicConnection_AfterStaticLoading()
         {
             MsDataFile brukerReader = MsDataFileReader.GetDataFile(_centroidPath);
@@ -135,6 +140,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestDynamicConnectionToAllScans()
         {
             MsDataFile brukerReader = MsDataFileReader.GetDataFile(_centroidPath);
@@ -151,6 +157,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestOpenAndCloseConnection()
         {
             MsDataFile brukerReader = MsDataFileReader.GetDataFile(_centroidPath);
@@ -165,6 +172,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         }
 
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestPeakFiltering()
         {
             FilteringParams filteringParams = new(null, 0.5);
@@ -187,6 +195,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         [TestCase("centroid_1x_MS1_4x_autoMS2.d")]
         [TestCase("profile_1x_MS1_4x_autoMS2.d")]
         [TestCase("profile_and_centroid_1x_MS1_4x_autoMS2.d")]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestLoadAllStaticDataWithMsMsTrimming(string fileName)
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", fileName);
@@ -235,6 +244,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         [TestCase("centroid_1x_MS1_4x_autoMS2.d")]
         [TestCase("profile_1x_MS1_4x_autoMS2.d")]
         [TestCase("profile_and_centroid_1x_MS1_4x_autoMS2.d")]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestMs2ScansHaveUsableIsolationRange(string fileName)
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory, "DataFiles", fileName);
@@ -264,6 +274,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         // ApplyTrimmingToMs1 was false (as MetaMorpheus sets it). That stripped precursor isotope envelopes
         // from the MS1 and precursor deconvolution then found nothing for most MS2 scans.
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestMs1NotTrimmedWhenApplyTrimmingToMs1IsFalse()
         {
             // The profile fixture has a rich MS1 (many peaks), so trimming is clearly observable.
@@ -292,6 +303,7 @@ namespace Test.FileReadingTests.SpectraFileReading
 
         // Bruker stores retention time in seconds; mzLib's convention is minutes. The reader must convert.
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestRetentionTimeConvertedToMinutes()
         {
             MsDataFile brukerData = MsDataFileReader.GetDataFile(_centroidPath).LoadAllStaticData();
@@ -334,6 +346,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         [Test]
         [TestCase("SupportedVariables")]      // variable-id lookup fails -> no precursor variables at all
         [TestCase("PerSpectrumVariables")]    // ids resolve, but the per-spectrum values are unavailable
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestPrecursorVariableTablesAreOptional(string tableToDrop)
         {
             string path = CopyFixtureAndEditSqlite("centroid_1x_MS1_4x_autoMS2.d", "DROP TABLE " + tableToDrop);
@@ -370,6 +383,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         // the charge is surfaced as-is on the scan it belongs to, and a 0 on another scan stays null rather
         // than being reported as a charge of 0 (which would be an invalid charge state downstream).
         [Test]
+        [Platform("Win", Reason = "Bruker's native readers (baf2sql, timsdata) ship for Windows only.")]
         public void TestPrecursorChargeStateIsReadFromPerSpectrumVariables()
         {
             // Scan 2 gets a real charge of 3; scans 3-5 keep Bruker's 0 = "could not determine".

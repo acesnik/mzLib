@@ -703,6 +703,7 @@ public class QuantificationDeliveryTests
     /// of them knows.
     /// </summary>
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void SampleColumnLabel_Isobaric_NamesTheChannelAsTheProteinTableDoes()
     {
         var named = new IsobaricQuantSampleInfo(@"C:\data\plex1.raw", "Control", 1, 1, 0, 0, "126", 126.0, false) { SampleName = "Patient7" };
@@ -720,6 +721,7 @@ public class QuantificationDeliveryTests
     /// A label-free design gives one column per file, and the writer labels it by file name.
     /// </summary>
     [Test]
+    [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
     public void SampleColumnLabel_UsesFileNameForLabelFreeSamples()
     {
         var spectraFile = new SpectraFileInfo(@"C:\data\run7.mzML", "Control", 0, 0, 0);

@@ -43,6 +43,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// would drop the second group's counts and intensities without any sign in the output.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void SampleGroupsSharingALabelEachKeepTheirOwnColumns()
         {
             var run1 = new SpectraFileInfo(@"C:\run1\sample.raw", "Control", 0, 0, 0);
@@ -78,6 +79,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// runA's column. Matching on file identity is what makes this correct.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void RecordsObservedInDifferentFilesAreNotCrossAttributed()
         {
             const string RunA = @"C:\runA\sample.raw";
@@ -117,6 +119,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// samples apart — and different tools disagree about how to mangle duplicates.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void CollidingLabelsProduceDistinctColumnNames()
         {
             var dataset = new[]
@@ -173,6 +176,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// Count-based occupancy is unaffected: its denominator is the observation count.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void IntensityOccupancyIsBlankWithoutMeasuredIntensity()
         {
             ModificationMotif.TryGetMotif("D", out var motif);
@@ -252,6 +256,7 @@ namespace Test.Omics.BioPolymerGroupTests
         /// so output does not change for datasets that were never ambiguous.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void NonCollidingLabelsAreLeftAlone()
         {
             var dataset = new[]

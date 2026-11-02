@@ -232,6 +232,7 @@ namespace Test.FileReadingTests.InternalFileReading
         /// <see cref="BioPolymerGroupTsvSchema"/> (the "BioPolymer ..." vocabulary) and read back.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void RoundTripsTheSchemaWriterLabelFree()
         {
             var group = BuildGroup([FileA, FileA, FileB], [100.0, 300.0, 50.0]);
@@ -261,6 +262,7 @@ namespace Test.FileReadingTests.InternalFileReading
         /// <summary>Isobaric: one counting pair per file, one intensity pair per channel. The counting label
         /// and the channel labels differ, so entries carry one half or the other, never a guessed pairing.</summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void RoundTripsTheSchemaWriterIsobaric()
         {
             var group = BuildGroup([FileA, FileA, FileA], [100.0, 300.0, 50.0]);

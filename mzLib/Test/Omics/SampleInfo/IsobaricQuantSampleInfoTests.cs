@@ -86,6 +86,7 @@ namespace Test.Omics.SampleInfo
         /// Column headers no longer come from here; they come from SampleGroupLabels.ForSample.
         /// </summary>
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public void ToString_ReturnsFileNameAndChannelLabel()
         {
             var sample = new IsobaricQuantSampleInfo(@"C:\Path\To\Experiment.raw", "Control", 1, 1, 0, 1, "126", 126.0, false);

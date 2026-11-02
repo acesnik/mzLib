@@ -487,6 +487,7 @@ namespace Test.FlashLFQ
         }
 
         [Test]
+        [Platform("Win", Reason = "Parses a Windows path; '\\' is not a separator off Windows.")]
         public static void TestSpectraFileInfoString()
         {
             SpectraFileInfo fakeFile = new SpectraFileInfo(@"C:\Users\xyz\data\fakeFile.raw", "A", 1, 1, 1); 

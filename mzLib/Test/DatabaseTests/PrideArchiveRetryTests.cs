@@ -338,6 +338,7 @@ public class PrideArchiveRetryTests
     }
 
     [Test]
+    [Platform("Win", Reason = "Holding a file open blocks deleting it only on Windows.")]
     public void AWriteSideIOException_IsNeverRetried()
     {
         // The partial is held open by someone else: that is the caller's disk, not an EBI outage.
