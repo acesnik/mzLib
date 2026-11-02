@@ -96,6 +96,28 @@ jobs:
       run: cd mzLib && dotnet build --no-restore ./Test/Test.csproj
     - name: Test (external services)
       run: cd mzLib && dotnet test --no-build --verbosity normal --filter "Category=ExternalService" ./Test/Test.csproj
+  # The required suite off Windows. Non-blocking while it beds in: a red run here is a finding, not a
+  # failed PR. Restores Test alone because the solution includes the WPF projects (mzPlot, TestMzPlot).
+  test-unix:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    continue-on-error: true
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v7
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v6
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: Restore dependencies
+      run: cd mzLib && dotnet restore ./Test/Test.csproj
+    - name: Build (Test)
+      run: cd mzLib && dotnet build --no-restore ./Test/Test.csproj
+    - name: Test
+      run: cd mzLib && dotnet test --no-build --verbosity normal --settings ./Test/required.runsettings ./Test/Test.csproj
   integration:
     runs-on: windows-latest
     timeout-minutes: 45
