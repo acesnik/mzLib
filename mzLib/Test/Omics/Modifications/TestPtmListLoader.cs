@@ -160,7 +160,7 @@ namespace Test.Omics.Modifications
         public static void TestInvalidModTypeError()
         {
             string mod = "ID   Deamidation\r\nTG   N or Q\r\nPP   Anywhere.\r\nMT   Mod:\r\nCF   H-1 N-1 O1\r\n//";
-            string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"TestInvalidModTypeError\ptmlist.txt");
+            string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"TestInvalidModTypeError/ptmlist.txt");
             Directory.CreateDirectory(Directory.GetParent(filepath).FullName);
             File.WriteAllLines(filepath, new string[] { mod });
 

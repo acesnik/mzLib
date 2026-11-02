@@ -24,9 +24,9 @@ namespace Test.FileReadingTests
             MsDataFileReader.GetDataFile(Data(relativePath)).GetSourceFile();
 
         [Test]
-        [TestCase(@"AveragingTests\TestData\TDYeastFractionMS1.mzML", "EXRFSN20410")]
-        [TestCase(@"DatabaseTests\sliced_b6.mzML", "FSN20121")]
-        [TestCase(@"FlashLFQ\TestData\sliced-mzml.mzML", "SN03001B")]
+        [TestCase(@"AveragingTests/TestData/TDYeastFractionMS1.mzML", "EXRFSN20410")]
+        [TestCase(@"DatabaseTests/sliced_b6.mzML", "FSN20121")]
+        [TestCase(@"FlashLFQ/TestData/sliced-mzml.mzML", "SN03001B")]
         public void MzML_ReadsTheSerialNumberFromTheReferenceableParamGroup(string relativePath, string expected)
         {
             // The ProteoWizard layout: the serial sits beside the model in CommonInstrumentParams.
@@ -36,7 +36,7 @@ namespace Test.FileReadingTests
         [Test]
         public void MzML_ReadsASerialNumberWrittenInlineOnTheConfiguration()
         {
-            Assert.That(Read(@"DataFiles\tiny.pwiz.1.1.mzML").InstrumentSerialNumber, Is.EqualTo("23433"));
+            Assert.That(Read(@"DataFiles/tiny.pwiz.1.1.mzML").InstrumentSerialNumber, Is.EqualTo("23433"));
         }
 
         [Test]
@@ -44,14 +44,14 @@ namespace Test.FileReadingTests
         {
             // It is what the file says. Deciding that "Serial Number N/A" means "unknown" is the
             // consumer's call, not the reader's.
-            Assert.That(Read(@"DataFiles\noPrecursorScans.mzML").InstrumentSerialNumber,
+            Assert.That(Read(@"DataFiles/noPrecursorScans.mzML").InstrumentSerialNumber,
                 Is.EqualTo("Serial Number N/A"));
         }
 
         [Test]
         public void MzML_WithNeitherValueReportsNull()
         {
-            var sourceFile = Read(@"DataFiles\SmallCalibratibleYeast.mzml");
+            var sourceFile = Read(@"DataFiles/SmallCalibratibleYeast.mzml");
 
             Assert.That(sourceFile.InstrumentSerialNumber, Is.Null);
             Assert.That(sourceFile.AcquisitionStartTime, Is.Null);
@@ -60,7 +60,7 @@ namespace Test.FileReadingTests
         [Test]
         public void MzML_StartTimeStampInUtcIsReadAsUtc()
         {
-            var time = Read(@"DatabaseTests\sliced_b6.mzML").AcquisitionStartTime;
+            var time = Read(@"DatabaseTests/sliced_b6.mzML").AcquisitionStartTime;
 
             Assert.That(time, Is.EqualTo(new DateTime(2018, 12, 13, 20, 0, 48, DateTimeKind.Utc)));
             Assert.That(time!.Value.Kind, Is.EqualTo(DateTimeKind.Utc));
@@ -69,7 +69,7 @@ namespace Test.FileReadingTests
         [Test]
         public void MzML_StartTimeStampKeepsFractionalSeconds()
         {
-            var time = Read(@"DataFiles\badScan7192.mzML").AcquisitionStartTime;
+            var time = Read(@"DataFiles/badScan7192.mzML").AcquisitionStartTime;
 
             Assert.That(time, Is.EqualTo(new DateTime(2021, 1, 13, 9, 34, 11, 285, DateTimeKind.Utc)));
         }
@@ -78,7 +78,7 @@ namespace Test.FileReadingTests
         public void MzML_StartTimeStampWithNoOffsetStaysUnspecified()
         {
             // No offset, no instant: the reader must not guess one from the machine it runs on.
-            var time = Read(@"DataFiles\tiny.pwiz.1.1.mzML").AcquisitionStartTime;
+            var time = Read(@"DataFiles/tiny.pwiz.1.1.mzML").AcquisitionStartTime;
 
             Assert.That(time!.Value.Kind, Is.EqualTo(DateTimeKind.Unspecified));
             Assert.That(time.Value, Is.EqualTo(new DateTime(2007, 6, 27, 15, 23, 45).AddTicks(3500)));
@@ -89,7 +89,7 @@ namespace Test.FileReadingTests
         {
             // XmlSerializer turns an explicit offset into the READING machine's Local time. Converted
             // back, the instant is the same on every machine.
-            string text = File.ReadAllText(Data(@"DataFiles\tiny.pwiz.1.1.mzML"))
+            string text = File.ReadAllText(Data(@"DataFiles/tiny.pwiz.1.1.mzML"))
                 .Replace("startTimeStamp=\"2007-06-27T15:23:45.00035\"", "startTimeStamp=\"2007-06-27T15:23:45+02:00\"");
             string path = Data($"offset_{Guid.NewGuid():N}.mzML");
             File.WriteAllText(path, text);
@@ -107,8 +107,8 @@ namespace Test.FileReadingTests
         }
 
         [Test]
-        [TestCase(@"DataFiles\sliced_ethcd.raw", @"DataFiles\sliced_ethcd.mzML", "FSN10189")]
-        [TestCase(@"FlashLFQ\TestData\sliced-raw.raw", @"FlashLFQ\TestData\sliced-mzml.mzML", "SN03001B")]
+        [TestCase(@"DataFiles/sliced_ethcd.raw", @"DataFiles/sliced_ethcd.mzML", "FSN10189")]
+        [TestCase(@"FlashLFQ/TestData/sliced-raw.raw", @"FlashLFQ/TestData/sliced-mzml.mzML", "SN03001B")]
         public void ThermoRaw_SerialNumberMatchesProteoWizardsConversionOfTheSameFile(
             string raw, string mzml, string expected)
         {
@@ -118,8 +118,8 @@ namespace Test.FileReadingTests
         }
 
         [Test]
-        [TestCase(@"DataFiles\sliced_ethcd.raw", 2021, 3, 16, 12, 9, 7)]
-        [TestCase(@"FlashLFQ\TestData\sliced-raw.raw", 2017, 7, 11, 9, 55, 53)]
+        [TestCase(@"DataFiles/sliced_ethcd.raw", 2021, 3, 16, 12, 9, 7)]
+        [TestCase(@"FlashLFQ/TestData/sliced-raw.raw", 2017, 7, 11, 9, 55, 53)]
         public void ThermoRaw_StartTimeIsTheAcquisitionComputersWallClock_WithNoKind(
             string raw, int year, int month, int day, int hour, int minute, int second)
         {
@@ -178,8 +178,8 @@ namespace Test.FileReadingTests
         }
 
         [Test]
-        [TestCase(@"DatabaseTests\sliced_b6.mzML")]
-        [TestCase(@"DataFiles\sliced_ethcd.raw")]
+        [TestCase(@"DatabaseTests/sliced_b6.mzML")]
+        [TestCase(@"DataFiles/sliced_ethcd.raw")]
         public void BothValues_SurviveAWrite(string relativePath)
         {
             // Calibration and averaging rewrite the mzML; the serial and the time, with its Kind,
@@ -212,7 +212,7 @@ namespace Test.FileReadingTests
         [Test]
         public void UnknownValues_AreNotWritten()
         {
-            var original = MsDataFileReader.GetDataFile(Data(@"DataFiles\SmallCalibratibleYeast.mzml"));
+            var original = MsDataFileReader.GetDataFile(Data(@"DataFiles/SmallCalibratibleYeast.mzml"));
             original.LoadAllStaticData();
 
             string outputPath = Data($"acquisition_none_{Guid.NewGuid():N}.mzML");
@@ -235,7 +235,7 @@ namespace Test.FileReadingTests
         {
             // ExportSnipAsMzML copies SourceFile field by field, so a new init-only property is
             // silently dropped there unless it is carried explicitly.
-            var original = MsDataFileReader.GetDataFile(Data(@"DatabaseTests\sliced_b6.mzML"));
+            var original = MsDataFileReader.GetDataFile(Data(@"DatabaseTests/sliced_b6.mzML"));
             original.LoadAllStaticData();
             var before = original.GetSourceFile();
 

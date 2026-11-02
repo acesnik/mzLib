@@ -23,7 +23,7 @@ namespace Test.FileReadingTests.ExternalFileReading
     [ExcludeFromCodeCoverage]
     internal class TestPytheasResultFile
     {
-        private const string PytheasResultPath = @"FileReadingTests\ExternalFileTypes\match_output_Lumos_Orbi.txt";
+        private const string PytheasResultPath = @"FileReadingTests/ExternalFileTypes/match_output_Lumos_Orbi.txt";
 
         private static string TestFilePath =>
             Path.Combine(TestContext.CurrentContext.TestDirectory, PytheasResultPath);
@@ -34,7 +34,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             _outputDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\PytheasReadWriteTests");
+                @"FileReadingTests/PytheasReadWriteTests");
             Directory.CreateDirectory(_outputDirectory);
         }
 

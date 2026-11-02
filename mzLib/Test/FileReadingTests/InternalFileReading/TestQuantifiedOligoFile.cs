@@ -13,7 +13,7 @@ namespace Test.FileReadingTests.InternalFileReading
     internal class TestQuantifiedOligoFile
     {
         private static string FixturePath => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            @"FileReadingTests\ExternalFileTypes\MetaMorpheus_RNA_AllQuantifiedOligos.tsv");
+            @"FileReadingTests/ExternalFileTypes/MetaMorpheus_RNA_AllQuantifiedOligos.tsv");
 
         [Test]
         public void ReadsFixedAndPerSampleColumnsThroughBothEntryPoints()

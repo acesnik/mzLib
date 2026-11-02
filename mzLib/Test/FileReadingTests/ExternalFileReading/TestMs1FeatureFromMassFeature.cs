@@ -28,7 +28,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\Ms1FeatureFromMassFeatureRoundTrip");
+                @"FileReadingTests/Ms1FeatureFromMassFeatureRoundTrip");
             Directory.CreateDirectory(directoryPath);
         }
 

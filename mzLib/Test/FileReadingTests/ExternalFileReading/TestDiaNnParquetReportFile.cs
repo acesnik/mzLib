@@ -31,7 +31,7 @@ namespace Test.FileReadingTests.ExternalFileReading;
 [ExcludeFromCodeCoverage]
 internal class TestDiaNnParquetReportFile
 {
-    private const string ReportPath = @"FileReadingTests\ExternalFileTypes\DiaNn2_report.parquet";
+    private const string ReportPath = @"FileReadingTests/ExternalFileTypes/DiaNn2_report.parquet";
     private const int RowsInFile = 559;
     private const int TargetRows = 532;
 
@@ -42,7 +42,7 @@ internal class TestDiaNnParquetReportFile
     [OneTimeSetUp]
     public void SetUp()
     {
-        _outputDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\DiaNnParquetTests");
+        _outputDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/DiaNnParquetTests");
         Directory.CreateDirectory(_outputDirectory);
     }
 

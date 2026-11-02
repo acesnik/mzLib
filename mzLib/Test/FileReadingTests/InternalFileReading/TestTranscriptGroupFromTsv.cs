@@ -13,7 +13,7 @@ namespace Test.FileReadingTests.InternalFileReading
     internal class TestTranscriptGroupFromTsv
     {
         private static string FixturePath => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            @"FileReadingTests\ExternalFileTypes\MetaMorpheus_RNA_AllQuantifiedTranscriptGroups.tsv");
+            @"FileReadingTests/ExternalFileTypes/MetaMorpheus_RNA_AllQuantifiedTranscriptGroups.tsv");
 
         [Test]
         public void ReadsEveryRowThroughBothEntryPoints()

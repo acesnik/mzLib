@@ -240,9 +240,9 @@ namespace Test.MassSpectrometryTests
         // .ms1.feature file (FlashDeconv or TopFD), then pairs against a synthetic
         // MS2 tuned to capture exactly one charge state of feature row #1.
 
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature",
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature",
             /*expectedIntensityPositive*/ false)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature",
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature",
             /*expectedIntensityPositive*/ true)]
         public void EndToEnd_FilePathCtor_ResolvesExpectedChargeState(string relativeFixturePath, bool expectedIntensityPositive)
         {
@@ -282,7 +282,7 @@ namespace Test.MassSpectrometryTests
         public void EndToEnd_FilePathCtor_NoMs2InWindow_NoEmit()
         {
             var fixturePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature");
             var parameters = new FromFileDeconvolutionParameters(fixturePath, minCharge: 1, maxCharge: 60);
 
             // MS2 at RT 100000 — far outside any feature's window.
@@ -440,7 +440,7 @@ namespace Test.MassSpectrometryTests
             // .Features load, NOT the constructor. Split the two: prove ctor is lazy
             // (no throw, no I/O) here, and assert the throw surfaces on .Features below.
             var psmTsv = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
             var parameters = new FromFileDeconvolutionParameters(psmTsv, minCharge: 1, maxCharge: 60);
             // No exception should have been thrown by the constructor above; reaching
             // this line proves the file was not eagerly opened in the ctor.
@@ -457,7 +457,7 @@ namespace Test.MassSpectrometryTests
             // Locks the lazy-load contract: constructing with a non-existent path must
             // succeed (no I/O), and only the .Features access must surface the failure.
             var missing = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\__missing_for_lazy_test__.ms1.feature");
+                @"FileReadingTests/__missing_for_lazy_test__.ms1.feature");
             Assume.That(File.Exists(missing), Is.False,
                 "guard: test fixture assumed this file does not exist; if it does, pick another path");
 
@@ -555,7 +555,7 @@ namespace Test.MassSpectrometryTests
             // or missing file. This locks the contract that hashing belongs to the
             // config-only identity (FilePath), not to loaded feature state.
             var missing = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\__missing_for_hash_test__.ms1.feature");
+                @"FileReadingTests/__missing_for_hash_test__.ms1.feature");
             var p = new FromFileDeconvolutionParameters(missing, minCharge: 1, maxCharge: 60);
 
             int hash = 0;
@@ -572,7 +572,7 @@ namespace Test.MassSpectrometryTests
             // throw from the Equals call — a regression of the original eager-load
             // design that this PR set out to remove.
             var path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature");
             var a = new FromFileDeconvolutionParameters(path, minCharge: 1, maxCharge: 60);
             var b = new FromFileDeconvolutionParameters(path, minCharge: 1, maxCharge: 60);
 
@@ -593,9 +593,9 @@ namespace Test.MassSpectrometryTests
             // next .Features access to re-read from the new path. Without invalidation,
             // the cached features would be silently stale.
             var pathA = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature");
             var pathB = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature");
 
             var p = new FromFileDeconvolutionParameters(pathA, minCharge: 1, maxCharge: 60);
             var firstFeatures = p.Features; // materializes cache from pathA
@@ -620,7 +620,7 @@ namespace Test.MassSpectrometryTests
             // Double-checked locking on the lazy load path: repeated .Features access
             // must return the same list reference (no re-read, no re-parse).
             var path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature");
             var p = new FromFileDeconvolutionParameters(path, minCharge: 1, maxCharge: 60);
 
             var first = p.Features;

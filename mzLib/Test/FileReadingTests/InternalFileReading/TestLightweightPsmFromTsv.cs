@@ -26,7 +26,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightReaderWithMultipleEntryPoints(string path, int expected)
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults", path);
+                @"FileReadingTests/SearchResults", path);
 
             // Read via lightweight reader
             var lightweightResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out var lwWarnings);
@@ -55,7 +55,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightFileReader()
         {
             string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+                @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
 
             // Full reader for comparison
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out var fullWarnings);
@@ -71,7 +71,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightDirectConstruction()
         {
             string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+                @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
 
             var lwFile = new LightWeightSpectralMatchFile(psmTsvPath);
             lwFile.LoadResults();
@@ -84,7 +84,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightSharedFieldsMatchFull()
         {
             string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+                @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
 
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out _);
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmTsvPath, out _);
@@ -120,7 +120,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightProteinGroupInfos()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFilePath, out _);
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out _);
@@ -150,7 +150,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightProteinGroupInfosMultipleFiles(string path)
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults", path);
+                @"FileReadingTests/SearchResults", path);
 
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFilePath, out _);
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out _);
@@ -169,7 +169,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightGetIdentifiedBioPolymersThrows()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out _);
             NUnit.Framework.Assert.That(lwResults.Count > 0);
@@ -183,7 +183,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightCompareTo()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out _);
             NUnit.Framework.Assert.That(lwResults.Count >= 2);
@@ -200,7 +200,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightRowFilter()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             // Row filter: only targets
             var rowFilters = new Dictionary<string, Func<string, bool>>
@@ -220,7 +220,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightTerminatingFilter()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             double qValueCutoff = 0.01;
             var terminatingFilters = new Dictionary<string, Func<string, bool>>
@@ -242,7 +242,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightCombinedFilters()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             double qValueCutoff = 0.01;
             var rowFilters = new Dictionary<string, Func<string, bool>>
@@ -267,7 +267,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightWithNewHeaderTerms()
         {
             string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\NewHeader.psmtsv");
+                @"FileReadingTests/SearchResults/NewHeader.psmtsv");
 
             var lwFile = FileReader.ReadFile<LightWeightSpectralMatchFile>(psmTsvPath);
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out _);
@@ -282,7 +282,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightXLink()
         {
             string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\XLink.psmtsv");
+                @"FileReadingTests/SearchResults/XLink.psmtsv");
 
             var lwFile = FileReader.ReadFile<LightWeightSpectralMatchFile>(psmTsvPath);
             List<PsmFromTsv> fullPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out _);
@@ -295,7 +295,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightFileNameFilePathDictionary(string path, string filePathA, string filePathB)
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults", path);
+                @"FileReadingTests/SearchResults", path);
 
             var lwFile = FileReader.ReadFile<LightWeightSpectralMatchFile>(psmFilePath);
             List<string> filePaths = new List<string> { filePathA, filePathB };
@@ -310,7 +310,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void TestLightweightQuantifiableResults()
         {
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             var lwFile = FileReader.ReadFile<LightWeightSpectralMatchFile>(psmFilePath);
             var quantResults = lwFile.GetQuantifiableResults().ToList();
@@ -331,7 +331,7 @@ namespace Test.FileReadingTests.InternalFileReading
         {
             // Standard psmtsv files without TMT columns should have null Intensities
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             var lwResults = LightWeightSpectralMatchReader.ReadTsv(psmFilePath, out _);
             NUnit.Framework.Assert.That(lwResults.Count > 0);
@@ -343,7 +343,7 @@ namespace Test.FileReadingTests.InternalFileReading
         {
             // Filter on a column that doesn't exist in the file — should not throw
             string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults/BottomUpExample.psmtsv");
 
             var rowFilters = new Dictionary<string, Func<string, bool>>
             {

@@ -17,7 +17,7 @@ namespace Test.FileReadingTests.ProForma
         private const string SampleProForma = "EM[Oxidation]EVEES[Phospho]PEK";
 
         private static string SearchResult(string name) =>
-            Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", name);
+            Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", name);
 
         [Test]
         public void ProForma_Column_IsParsed()
@@ -175,11 +175,11 @@ namespace Test.FileReadingTests.ProForma
             }
         }
 
-        [TestCase(@"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\XLink.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\nglyco_f5.psmtsv")]
-        [TestCase(@"Transcriptomics\TestData\OsmFileForTesting.osmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/XLink.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/nglyco_f5.psmtsv")]
+        [TestCase(@"Transcriptomics/TestData/OsmFileForTesting.osmtsv")]
         public void ProForma_ColumnAbsent_NeverThrows(string relativePath)
         {
             // Top-down, crosslink, glyco and RNA full sequences are not all expressible as flat ProForma;

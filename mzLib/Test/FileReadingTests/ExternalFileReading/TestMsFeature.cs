@@ -21,7 +21,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -32,11 +32,11 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature", 1, 7)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature", 2, 1)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature", 1, 4)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms2Feature_TopFDv1.6.2_ms2.feature", 2, 5)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature", 1, 4)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature", 1, 7)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature", 2, 1)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature", 1, 4)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms2Feature_TopFDv1.6.2_ms2.feature", 2, 5)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature", 1, 4)]
         public void TestFeaturesLoadAndCountIsCorrect(string path, int type, int featureCount)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -73,7 +73,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public static void TestFlashDeconvMs1FeatureFirstAndLastAreCorrect()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature");
             var ms1Features = new Ms1FeatureFile(filePath);
             var first = ms1Features.First();
             var last = ms1Features.Last();
@@ -108,7 +108,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public static void TestFlashDeconvMs2FeatureFirstAndLastAreCorrect()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature");
             var ms1Features = FileReader.ReadFile<Ms2FeatureFile>(filePath);
 
             var first = ms1Features.First();
@@ -154,7 +154,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestTopFDMs1FeatureFirstAndLastAreCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature");
             var ms1Features = FileReader.ReadFile<Ms1FeatureFile>(filePath);
 
             var first = ms1Features.First();
@@ -198,7 +198,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestTopFDv1_7_0Ms1FeatureFirstAndLastAreCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature");
             var ms1Features = FileReader.ReadFile<Ms1FeatureFile>(filePath);
 
             var first = ms1Features.First();
@@ -244,7 +244,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestTopFDv1_7_0Ms1GetSingleChargeFeatureFunctions()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature");
             var ms1Features = FileReader.ReadFile<Ms1FeatureFile>(filePath);
 
             var first = ms1Features.First();
@@ -268,7 +268,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestTopFDMs1GetSingleChargeFeatureFunctions()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature");
             var ms1Features = FileReader.ReadFile<Ms1FeatureFile>(filePath);
 
             var first = ms1Features.First();
@@ -290,7 +290,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestTopFDMs2FeatureFirstAndLastAreCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\Ms2Feature_TopFDv1.6.2_ms2.feature");
+                @"FileReadingTests/ExternalFileTypes/Ms2Feature_TopFDv1.6.2_ms2.feature");
             var ms1Features = new Ms2FeatureFile(filePath);
             var first = ms1Features.First();
             var last = ms1Features.Last();
@@ -337,9 +337,9 @@ namespace Test.FileReadingTests.ExternalFileReading
         // every field consumed downstream (Mass, RT, charge bounds, apex intensity) survives the
         // round-trip; columns that don't survive are exactly the ones marked [Optional] and unused.
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.7.0_ms1.feature")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.7.0_ms1.feature")]
         public static void TestMs1FeatureReadWrite(string filePath)
         {
             var testFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, filePath);
@@ -369,8 +369,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms2Feature_TopFDv1.6.2_ms2.feature")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms2Feature_TopFDv1.6.2_ms2.feature")]
         public static void TestMs2FeatureReadWrite(string filePath)
         {
             var testFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, filePath);

@@ -13,13 +13,13 @@ namespace Test.FileReadingTests.ExternalFileReading
     {
 
         private static string directoryPath;
-        private static string filePath => Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\DinoSnippet.features.tsv");
+        private static string filePath => Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/DinoSnippet.features.tsv");
 
         [OneTimeSetUp]
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 

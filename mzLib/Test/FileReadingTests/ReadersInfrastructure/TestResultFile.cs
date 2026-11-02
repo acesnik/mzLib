@@ -17,11 +17,11 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         public static void TestEquals()
         {
             string path1 =
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature";
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature";
             string path2 =
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature";
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature";
             string ms2FeaturePath =
-                @"FileReadingTests\ExternalFileTypes\Ms2Feature_TopFDv1.6.2_ms2.feature";
+                @"FileReadingTests/ExternalFileTypes/Ms2Feature_TopFDv1.6.2_ms2.feature";
 
             Ms1FeatureFile ms1Features = new Ms1FeatureFile(path1);
             Assert.That(ms1Features.Software == Software.TopFD);
@@ -55,7 +55,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         public static void TestGetEnumerator()
         {
             string path1 =
-                @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature";
+                @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature";
 
             Ms1FeatureFile ms1Features = new Ms1FeatureFile(path1);
 
@@ -68,8 +68,8 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [Test]
         public static void TestOperatorOverloads()
         {
-            string path1 = @"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature";
-            string path2 = @"FileReadingTests\ExternalFileTypes\Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature";
+            string path1 = @"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature";
+            string path2 = @"FileReadingTests/ExternalFileTypes/Ms1Feature_FlashDeconvOpenMs3.0.0_ms1.feature";
 
             Ms1FeatureFile fileToTest = new Ms1FeatureFile(path1);
             Ms1FeatureFile ms1Features2 = new Ms1FeatureFile(path2);

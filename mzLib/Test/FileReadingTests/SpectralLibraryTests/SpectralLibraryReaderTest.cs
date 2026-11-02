@@ -16,7 +16,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void SpectralLibraryReaderTest()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\myPrositLib.msp");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/myPrositLib.msp");
 
             var testLibraryWithoutDecoy = new SpectralLibraryClass(new List<string> { path });
             var librarySpectra = testLibraryWithoutDecoy.GetAllLibrarySpectra().ToList();
@@ -78,7 +78,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
             }
 
             // write the library w/ the ToString method
-            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\testLibraryToString.msp");
+            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/testLibraryToString.msp");
             var str = librarySpectra.SelectMany(p => p.ToString().Split(new char[] { '\n' }));
             File.WriteAllLines(writtenPath, str);
 
@@ -117,7 +117,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void SpectralLibraryReaderTestNeutralLoss()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\spectralLibraryNeutralLossTest.msp");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/spectralLibraryNeutralLossTest.msp");
 
             var testLibraryWithoutDecoy = new SpectralLibraryClass(new List<string> { path });
             var librarySpectra = testLibraryWithoutDecoy.GetAllLibrarySpectra().ToList();
@@ -171,7 +171,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
             }
 
             // write the library w/ the ToString method
-            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\testLibraryToString.msp");
+            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/testLibraryToString.msp");
             var str = librarySpectra.SelectMany(p => p.ToString().Split(new char[] { '\n' }));
             File.WriteAllLines(writtenPath, str);
 
@@ -207,7 +207,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void SpectralLibraryReaderTest_pDeep()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\yeast2fake_pdeep_lib.msp");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/yeast2fake_pdeep_lib.msp");
 
             var testLibraryWithoutDecoy = new SpectralLibraryClass(new List<string> { path });
             var librarySpectra = testLibraryWithoutDecoy.GetAllLibrarySpectra().ToList();
@@ -249,7 +249,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
             }
 
             // write the library w/ the ToString method
-            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\testLibraryToString.msp");
+            var writtenPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/testLibraryToString.msp");
             var str = librarySpectra.SelectMany(p => p.ToString().Split(new char[] { '\n' }));
             File.WriteAllLines(writtenPath, str);
 
@@ -313,7 +313,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void TestNegativeIonReading()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\RnaSpectralLibrary.msp");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/RnaSpectralLibrary.msp");
 
             var testLibraryWithoutDecoy = new SpectralLibraryClass(new List<string> { path });
             var librarySpectra = testLibraryWithoutDecoy.GetAllLibrarySpectra().ToList();
@@ -356,7 +356,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void WriteXlSpectralLibraryTest()
         {
-            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\SpectralLibrary_XL.msp");
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/SpectralLibrary_XL.msp");
             var testLibraryWithoutDecoy = new SpectralLibraryClass(new List<string> { path });
 
             // Check that SinglePeptides are written
@@ -394,7 +394,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void SpectralLibraryReader_Ms2Pip()
         {
-            var libraryPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\test_ms2pip.msp"); ;
+            var libraryPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/test_ms2pip.msp"); ;
             var pathList = new List<string> { libraryPath }; 
             var library = new SpectralLibraryClass(pathList);
             var librarySpectra = library.GetAllLibrarySpectra().ToList();
@@ -554,7 +554,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         }
 
         private static string TemporaryLibraryPath() => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            $@"FileReadingTests\SpectralLibraryTests\SpectralLibraryData\roundTrip_{TestContext.CurrentContext.Test.ID}.msp");
+            $@"FileReadingTests/SpectralLibraryTests/SpectralLibraryData/roundTrip_{TestContext.CurrentContext.Test.ID}.msp");
 
         private static (LibrarySpectrum Read, bool Found) WriteAndRead(LibrarySpectrum written)
         {

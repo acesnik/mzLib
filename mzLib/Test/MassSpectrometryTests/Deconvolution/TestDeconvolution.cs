@@ -35,7 +35,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
 
             //txt file, not mgf, because it's an MS1. Most intense proteoform has mass of ~14037.9 Da
             string Ms1SpectrumPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"DataFiles\14kDaProteoformMzIntensityMs1.txt");
+                @"DataFiles/14kDaProteoformMzIntensityMs1.txt");
 
             string[] spectrumLines = File.ReadAllLines(Ms1SpectrumPath);
 
@@ -132,7 +132,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
 
             //txt file, not mgf, because it's an MS1. Most intense proteoform has mass of ~14037.9 Da
             string Ms1SpectrumPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"DataFiles\14kDaProteoformMzIntensityMs1.txt");
+                @"DataFiles/14kDaProteoformMzIntensityMs1.txt");
 
             string[] spectrumLines = File.ReadAllLines(Ms1SpectrumPath);
 
@@ -287,7 +287,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
             MsDataScan[] Scans = new MsDataScan[1];
 
             //txt file, not mgf, because it's an MS1. Most intense proteoform has mass of ~14037.9 Da
-            string Ms1SpectrumPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DataFiles\14kDaProteoformMzIntensityMs1.txt");
+            string Ms1SpectrumPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DataFiles/14kDaProteoformMzIntensityMs1.txt");
 
             string[] spectrumLines = File.ReadAllLines(Ms1SpectrumPath);
 

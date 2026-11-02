@@ -19,7 +19,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -32,7 +32,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public void TestCasanovoMzTabLoadsAndCountCorrect()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\Casanovo_5.0.0.mztab");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/Casanovo_5.0.0.mztab");
             var file = new CasanovoMzTabFile(filePath);
             Assert.That(file.Count(), Is.EqualTo(5));
             Assert.That(file.CanRead(filePath));
@@ -46,7 +46,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public void TestCasanovoMzTabFirstAndLastCorrect()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\Casanovo_5.0.0.mztab");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/Casanovo_5.0.0.mztab");
             var file = new CasanovoMzTabFile(filePath);
             var first = file.First();
             var last = file.Last();
@@ -83,7 +83,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public void TestCasanovoMzTabReadWriteRoundTrip()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\Casanovo_5.0.0.mztab");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/Casanovo_5.0.0.mztab");
             string outPath = Path.Combine(directoryPath, "testCasanovoMzTab");
 
             var file = new CasanovoMzTabFile(filePath);

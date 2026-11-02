@@ -1395,7 +1395,7 @@ namespace Test.DatabaseTests
         [Test]
         public static void IsoformReadTest()
         {
-            string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests\isoformTest.fasta");
+            string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests/isoformTest.fasta");
             var proteinList = ProteinDbLoader.LoadProteinFasta(filepath, true, DecoyType.None, false, out var dbErrors, ProteinDbLoader.UniprotAccessionRegex, ProteinDbLoader.UniprotFullNameRegex,
                 ProteinDbLoader.UniprotFullNameRegex, ProteinDbLoader.UniprotGeneNameRegex, ProteinDbLoader.UniprotOrganismRegex);
 

@@ -12,7 +12,7 @@ namespace Test.FileReadingTests.ExternalFileReading
     internal class TestMsFraggerCombinedResults
     {
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults")]
         public void TestLoadResultsCount(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -24,7 +24,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults")]
         public void TestLoadResults(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -38,7 +38,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults")]
         public void TestFileNameToFilePathWithParameter(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -64,7 +64,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults")]
         public void TestFileNameToFilePathWithoutParameter(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -83,11 +83,11 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults\experiment_annotation.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults/experiment_annotation.tsv")]
         public void TestExperimentAnnotationFile(string path)
         {
             string fileToWrite = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults\copy_experiment_annotation.tsv");
+                @"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults/copy_experiment_annotation.tsv");
             if (File.Exists(fileToWrite))
             {
                 File.Delete(fileToWrite);

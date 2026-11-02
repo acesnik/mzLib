@@ -42,7 +42,7 @@ namespace Test.MassSpectrometryTests.Deconvolution
         private static MzSpectrum LoadProteoformSpectrum()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"DataFiles\14kDaProteoformMzIntensityMs1.txt");
+                @"DataFiles/14kDaProteoformMzIntensityMs1.txt");
             string[] lines = File.ReadAllLines(path);
             double[] mzs = new double[lines.Length];
             double[] intensities = new double[lines.Length];

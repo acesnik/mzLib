@@ -26,32 +26,32 @@ namespace Test.FileReadingTests.SpectraFileReading
                 {
                     "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign",
                     new Ms1Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign"))
                 },
                 {
                     "Ms1Align_IsoDec1.0.0_ms1.msalign",
                     new Ms1Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms1Align_IsoDec1.0.0_ms1.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms1Align_IsoDec1.0.0_ms1.msalign"))
                 },
                 {
                     "Ms1Align_TopFDv1.6.2_ms1.msalign",
                     new Ms1Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms1Align_TopFDv1.6.2_ms1.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms1Align_TopFDv1.6.2_ms1.msalign"))
                 },
                 {
                     "Ms2Align_FlashDeconvOpenMs3.0.0_ms2.msalign",
                     new Ms2Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms2Align_FlashDeconvOpenMs3.0.0_ms2.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms2Align_FlashDeconvOpenMs3.0.0_ms2.msalign"))
                 },
                 {
                     "Ms2Align_IsoDec1.0.0_ms2.msalign",
                     new Ms2Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign"))
                 },
                 {
                     "Ms2Align_TopFDv1.6.2_ms2.msalign",
                     new Ms2Align(Path.Combine(TestContext.CurrentContext.TestDirectory,
-                        @"FileReadingTests\ExternalFileTypes", "Ms2Align_TopFDv1.6.2_ms2.msalign"))
+                        @"FileReadingTests/ExternalFileTypes", "Ms2Align_TopFDv1.6.2_ms2.msalign"))
                 }
             };
 
@@ -69,7 +69,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void TestMsAlignResultsLoadsAndCountCorrect(string path, int recordCount, int expectedMsAlignNumber)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", path);
+                @"FileReadingTests/ExternalFileTypes", path);
 
             MsAlign file = expectedMsAlignNumber == 1
                 ? new Ms1Align(filePath)
@@ -91,7 +91,7 @@ namespace Test.FileReadingTests.SpectraFileReading
             int expectedMsAlignNumber)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", path);
+                @"FileReadingTests/ExternalFileTypes", path);
 
             MsDataFile file = MsDataFileReader.GetDataFile(filePath);
             file.LoadAllStaticData();
@@ -117,7 +117,7 @@ namespace Test.FileReadingTests.SpectraFileReading
             int expectedMsAlignNumber)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", path);
+                @"FileReadingTests/ExternalFileTypes", path);
 
             MsDataFile file = FileReader.ReadFile<MsDataFileToResultFileAdapter>(filePath);
             Assert.That(file.Count(), Is.EqualTo(recordCount));
@@ -269,7 +269,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void GetOneBasedScanFromDynamicConnection_ConnectionNotInitialized_ThrowsException()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign");
+                @"FileReadingTests/ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign");
 
             var msAlign = new Ms1Align(path);
 
@@ -335,7 +335,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void ParseHeader_HeaderNotPresent()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign");
+                @"FileReadingTests/ExternalFileTypes", "Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign");
 
             var msAlign = new Ms1Align(path);
             msAlign.LoadAllStaticData();
@@ -365,7 +365,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void ParseHeader_HeaderPresent()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", "Ms1Align_TopFDv1.6.2_ms1.msalign");
+                @"FileReadingTests/ExternalFileTypes", "Ms1Align_TopFDv1.6.2_ms1.msalign");
 
             Ms1Align msAlign = new Ms1Align(path);
             msAlign.LoadAllStaticData();
@@ -395,7 +395,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void ParseHeader_Ms2Align_IsoDec1_0_0()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign");
+                @"FileReadingTests/ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign");
 
             var msAlign = new Ms2Align(path);
             msAlign.LoadAllStaticData();
@@ -423,7 +423,7 @@ namespace Test.FileReadingTests.SpectraFileReading
         public void NeutralMassSpectrum_FromMsAlign()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign");
+                @"FileReadingTests/ExternalFileTypes", "Ms2Align_IsoDec1.0.0_ms2.msalign");
 
             var msAlign = new Ms2Align(path);
             msAlign.LoadAllStaticData();

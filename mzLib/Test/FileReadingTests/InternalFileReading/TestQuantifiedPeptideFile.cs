@@ -18,7 +18,7 @@ namespace Test.FileReadingTests.InternalFileReading
     internal class TestQuantifiedPeptideFile
     {
         private static string FixturePath => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            @"FileReadingTests\ExternalFileTypes\MetaMorpheus_1.1.11_AllQuantifiedPeptides.tsv");
+            @"FileReadingTests/ExternalFileTypes/MetaMorpheus_1.1.11_AllQuantifiedPeptides.tsv");
 
         [Test]
         public void ReadsTheFixedAndPerSampleColumns()

@@ -15,7 +15,7 @@ namespace Test.FileReadingTests.ProForma
     internal static class ProFormaTestCorpus
     {
         public static string TsvPath => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            @"FileReadingTests\ProForma\manuscript-examples.tsv");
+            @"FileReadingTests/ProForma/manuscript-examples.tsv");
 
         /// <summary>
         /// Turns a corpus id into a name safe to hand to NUnit's SetName.

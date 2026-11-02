@@ -20,9 +20,9 @@ namespace Test.FileReadingTests
             Path.Combine(TestContext.CurrentContext.TestDirectory, Path.Combine(parts));
 
         [Test]
-        [TestCase(@"AveragingTests\TestData\TDYeastFractionMS1.mzML", "MS:1002732", "Orbitrap Fusion Lumos")]
-        [TestCase(@"DatabaseTests\sliced_b6.mzML", "MS:1002416", "Orbitrap Fusion")]
-        [TestCase(@"FlashLFQ\TestData\20100614_Velos1_TaGe_SA_K562_3.mzML", "MS:1001742", "LTQ Orbitrap Velos")]
+        [TestCase(@"AveragingTests/TestData/TDYeastFractionMS1.mzML", "MS:1002732", "Orbitrap Fusion Lumos")]
+        [TestCase(@"DatabaseTests/sliced_b6.mzML", "MS:1002416", "Orbitrap Fusion")]
+        [TestCase(@"FlashLFQ/TestData/20100614_Velos1_TaGe_SA_K562_3.mzML", "MS:1001742", "LTQ Orbitrap Velos")]
         public void MzML_ReadsInstrumentModelFromReferenceableParamGroup(
             string relativePath, string expectedAccession, string expectedName)
         {
@@ -43,7 +43,7 @@ namespace Test.FileReadingTests
         {
             // MS:1000529 (instrument serial number) sits immediately beside the model in the same
             // group. It is excluded both by name and by the fact that it carries a value.
-            var file = MsDataFileReader.GetDataFile(Data(@"AveragingTests\TestData\TDYeastFractionMS1.mzML"));
+            var file = MsDataFileReader.GetDataFile(Data(@"AveragingTests/TestData/TDYeastFractionMS1.mzML"));
             var model = file.GetSourceFile().InstrumentModel;
 
             Assert.That(model.Accession, Is.Not.EqualTo("MS:1000529"));
@@ -57,7 +57,7 @@ namespace Test.FileReadingTests
             // no specific instrument. Reporting that as the model would be worse than reporting
             // nothing: downstream it would look like a real, joinable instrument identity when it
             // says nothing at all.
-            var file = MsDataFileReader.GetDataFile(Data(@"DataFiles\SmallCalibratibleYeast.mzml"));
+            var file = MsDataFileReader.GetDataFile(Data(@"DataFiles/SmallCalibratibleYeast.mzml"));
             var sourceFile = file.GetSourceFile();
 
             Assert.That(sourceFile.InstrumentModel, Is.Null);
@@ -70,7 +70,7 @@ namespace Test.FileReadingTests
             // the abstract vendor node, valueless, sitting exactly where a real model would sit.
             // The value test alone lets it through, and since the writer change it would then be
             // written into every mzML as though it identified an instrument.
-            var file = MsDataFileReader.GetDataFile(Data(@"DataFiles\badScan7192.mzML"));
+            var file = MsDataFileReader.GetDataFile(Data(@"DataFiles/badScan7192.mzML"));
             var model = file.GetSourceFile().InstrumentModel;
 
             Assert.That(model, Is.Null,

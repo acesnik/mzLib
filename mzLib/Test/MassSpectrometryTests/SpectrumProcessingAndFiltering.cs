@@ -230,10 +230,10 @@ namespace Test.MassSpectrometryTests
         public static void ProcessXcorrInB6MzSpectrum()
         {
             Dictionary<string, MsDataFile> MyMsDataFiles = new Dictionary<string, MsDataFile>();
-            string origDataFile = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests\sliced_b6.mzML");
+            string origDataFile = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests/sliced_b6.mzML");
             FilteringParams filter = new FilteringParams(200, 0.01, null, 1, false, false, false);
 
-            string expectedResultFile = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests\Working_86.tsv");
+            string expectedResultFile = Path.Combine(TestContext.CurrentContext.TestDirectory, @"DatabaseTests/Working_86.tsv");
 
             List<string> expectedResults = File.ReadAllLines(expectedResultFile, Encoding.UTF8).ToList();
 

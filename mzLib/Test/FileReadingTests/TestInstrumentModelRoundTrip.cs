@@ -23,8 +23,8 @@ namespace Test.FileReadingTests
             Path.Combine(TestContext.CurrentContext.TestDirectory, relativePath);
 
         [Test]
-        [TestCase(@"AveragingTests\TestData\TDYeastFractionMS1.mzML", "MS:1002732", "Orbitrap Fusion Lumos")]
-        [TestCase(@"DatabaseTests\sliced_b6.mzML", "MS:1002416", "Orbitrap Fusion")]
+        [TestCase(@"AveragingTests/TestData/TDYeastFractionMS1.mzML", "MS:1002732", "Orbitrap Fusion Lumos")]
+        [TestCase(@"DatabaseTests/sliced_b6.mzML", "MS:1002416", "Orbitrap Fusion")]
         public void InstrumentModel_SurvivesAWrite(string relativePath, string expectedAccession, string expectedName)
         {
             var original = MsDataFileReader.GetDataFile(Data(relativePath));
@@ -59,7 +59,7 @@ namespace Test.FileReadingTests
             // A file whose instrument we never knew must keep writing MS:1000031, both because that
             // is what mzML expects and because the accession attribute is mandatory -- a name-only
             // cvParam would not validate.
-            var original = MsDataFileReader.GetDataFile(Data(@"DataFiles\SmallCalibratibleYeast.mzml"));
+            var original = MsDataFileReader.GetDataFile(Data(@"DataFiles/SmallCalibratibleYeast.mzml"));
             original.LoadAllStaticData();
 
             Assert.That(original.GetSourceFile().InstrumentModel, Is.Null,

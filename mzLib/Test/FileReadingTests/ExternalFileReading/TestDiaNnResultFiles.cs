@@ -21,7 +21,7 @@ namespace Test.FileReadingTests.ExternalFileReading
     [ExcludeFromCodeCoverage]
     internal class TestDiaNnResultFiles
     {
-        private const string DiaNnReportPath = @"FileReadingTests\ExternalFileTypes\DiaNn_LongFormat_report.tsv";
+        private const string DiaNnReportPath = @"FileReadingTests/ExternalFileTypes/DiaNn_LongFormat_report.tsv";
 
         private static string TestFilePath =>
             Path.Combine(TestContext.CurrentContext.TestDirectory, DiaNnReportPath);
@@ -32,7 +32,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             _outputDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\DiaNnReadWriteTests");
+                @"FileReadingTests/DiaNnReadWriteTests");
             Directory.CreateDirectory(_outputDirectory);
         }
 

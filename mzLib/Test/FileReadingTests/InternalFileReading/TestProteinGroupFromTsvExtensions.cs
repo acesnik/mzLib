@@ -19,7 +19,7 @@ namespace Test.FileReadingTests.InternalFileReading
     internal class TestProteinGroupFromTsvExtensions
     {
         private static string FixturePath => Path.Combine(TestContext.CurrentContext.TestDirectory,
-            @"FileReadingTests\ExternalFileTypes\MetaMorpheus_1.1.11_AllQuantifiedProteinGroups.tsv");
+            @"FileReadingTests/ExternalFileTypes/MetaMorpheus_1.1.11_AllQuantifiedProteinGroups.tsv");
 
         private static string OntologyPath => Path.Combine(TestContext.CurrentContext.TestDirectory,
             "DataFiles", "Ontologies", "go-trimmed.obo");

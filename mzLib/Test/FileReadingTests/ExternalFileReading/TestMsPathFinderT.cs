@@ -20,7 +20,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -31,9 +31,9 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_TargetResults_IcTarget.tsv", 6)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_DecoyResults_IcDecoy.tsv", 6)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_AllResults_IcTda.tsv", 6)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_TargetResults_IcTarget.tsv", 6)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_DecoyResults_IcDecoy.tsv", 6)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_AllResults_IcTda.tsv", 6)]
         public void TestMsPathFinderTLoadsAndCountCorrect(string path, int count)
         {
             var filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -46,7 +46,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestMsPathFinderTAllResultsFirstAndLastCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                               @"FileReadingTests\ExternalFileTypes\MsPathFinderT_AllResults_IcTda.tsv");
+                               @"FileReadingTests/ExternalFileTypes/MsPathFinderT_AllResults_IcTda.tsv");
             MsPathFinderTResultFile file = new MsPathFinderTResultFile(filePath);
             var first = file.First();
             var last = file.Last();
@@ -106,7 +106,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestMsPathFinderTTargetResultsFirstAndLastAreCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\MsPathFinderT_TargetResults_IcTarget.tsv");
+                @"FileReadingTests/ExternalFileTypes/MsPathFinderT_TargetResults_IcTarget.tsv");
             MsPathFinderTResultFile file = new MsPathFinderTResultFile(filePath);
             var first = file.First();
             var last = file.Last();
@@ -164,7 +164,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestMsPathFinderTDecoysFirstAndLastIsCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                               @"FileReadingTests\ExternalFileTypes\MsPathFinderT_DecoyResults_IcDecoy.tsv");
+                               @"FileReadingTests/ExternalFileTypes/MsPathFinderT_DecoyResults_IcDecoy.tsv");
             MsPathFinderTResultFile file = new MsPathFinderTResultFile(filePath);
             var first = file.First();
             var last = file.Last();
@@ -219,9 +219,9 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_DecoyResults_IcDecoy.tsv", 2)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_TargetResults_IcTarget.tsv", 1)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_AllResults_IcTda.tsv", 3)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_DecoyResults_IcDecoy.tsv", 2)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_TargetResults_IcTarget.tsv", 1)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_AllResults_IcTda.tsv", 3)]
         public static void TestMsPathFinderTAllResultsReadWrite(string path, int fileNum)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -253,7 +253,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void ModificationReading()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\MsPathFinderT_WithMods_IcTda.tsv");
+                @"FileReadingTests/ExternalFileTypes/MsPathFinderT_WithMods_IcTda.tsv");
             MsPathFinderTResultFile file = new MsPathFinderTResultFile(path);
 
             Assert.That(file.Count(), Is.EqualTo(5));

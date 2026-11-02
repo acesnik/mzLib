@@ -17,7 +17,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -28,7 +28,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\crux.txt", 14)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/crux.txt", 14)]
         public void TestCruxResultsLoadsAndCountCorrect(string path, int recordCount)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -38,7 +38,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\crux.txt", 14)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/crux.txt", 14)]
         public static void TestCruxResultsFromGenericReader(string path, int recordCount)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -51,7 +51,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\crux.txt")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/crux.txt")]
         public void TestCruxResultsFirstAndLastAreCorrect(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -109,7 +109,7 @@ namespace Test.FileReadingTests.ExternalFileReading
 
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\crux.txt")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/crux.txt")]
         public void TestCruxResultsWriteResults(string path)
         {
             // load in original

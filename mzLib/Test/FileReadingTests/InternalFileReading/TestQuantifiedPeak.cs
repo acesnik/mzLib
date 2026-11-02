@@ -17,11 +17,11 @@ namespace Test.FileReadingTests.InternalFileReading
         public void SetUp()
         {
             TestDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             TestFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\FlashLFQ_MzLib1.0.549_QuantifiedPeaks.tsv");
+                @"FileReadingTests/ExternalFileTypes/FlashLFQ_MzLib1.0.549_QuantifiedPeaks.tsv");
             CurrentFormatFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\FlashLFQ_MzLib1.0.591_QuantifiedPeaks.tsv");
+                @"FileReadingTests/ExternalFileTypes/FlashLFQ_MzLib1.0.591_QuantifiedPeaks.tsv");
             Directory.CreateDirectory(TestDirectory);
         }
 

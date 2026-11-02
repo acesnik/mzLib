@@ -32,7 +32,7 @@ namespace Test.FlashLFQ
         
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv")]
         public void TestAddProteinGroupInfoCorrect(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -75,7 +75,7 @@ namespace Test.FlashLFQ
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv")]
         public void TestFileNametoFilePath(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -84,7 +84,7 @@ namespace Test.FlashLFQ
 
             List<string> fullFilePath = new List<string>();
             string fullFilePath1 = @"D:\Projects\Chimeras\Mann_11cell_analysis\RawData\interact-20100611_Velos1_TaGe_SA_Hela_1.raw";
-            string fullFilePath2 = @"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv";
+            string fullFilePath2 = @"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv";
             fullFilePath.Add(fullFilePath1);
             fullFilePath.Add(fullFilePath2);
 
@@ -96,7 +96,7 @@ namespace Test.FlashLFQ
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\SmallCalibratibleYeastFragger_psm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/SmallCalibratibleYeastFragger_psm.tsv")]
         public void TestFileNametoFilePathLocalPath(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -104,7 +104,7 @@ namespace Test.FlashLFQ
             string fileName = file.First().FileName;
 
             List<string> fullFilePath = new List<string>();
-            string rawFilePath = @"DataFiles\SmallCalibratibleYeast.mzml";
+            string rawFilePath = @"DataFiles/SmallCalibratibleYeast.mzml";
             fullFilePath.Add(rawFilePath);
 
             Dictionary<string, string> allFiles = file.FileNameToFilePath(fullFilePath);
@@ -293,7 +293,7 @@ namespace Test.FlashLFQ
         [Test]
         public static void MakeIdentificationsFromPsmtsv_SkipsRecordsForSpectraFilesThatWereNotProvided()
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             IQuantifiableResultFile quantifiableResultFile = FileReader.ReadQuantifiableResultFile(psmFilePath);
 
             SpectraFileInfo providedSpectraFile = new SpectraFileInfo("04-30-13_CAST_Frac5_4uL.raw", "A", 0, 0, 0);

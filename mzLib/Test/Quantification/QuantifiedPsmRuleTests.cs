@@ -117,7 +117,7 @@ namespace Test.Quantification
 
         #region Result files
 
-        private static string Source => Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+        private static string Source => Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
 
         private static List<SpectraFileInfo> BothFiles => new()
         {
@@ -311,7 +311,7 @@ namespace Test.Quantification
         [Test]
         public static void ANamedTierNoMatchHasIsRefused()
         {
-            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\DiaNn_LongFormat_report.tsv");
+            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/DiaNn_LongFormat_report.tsv");
             var file = new DiaNnReportFile(path);
             var spectraFiles = file.Select(p => p.SpectraFilePath).Distinct()
                 .Select((filePath, i) => new SpectraFileInfo(filePath, "PBMC", i, 0, 0)).ToList();
@@ -446,7 +446,7 @@ namespace Test.Quantification
         [Test]
         public static void AnMsFraggerFileIsFilteredOnNoTier()
         {
-            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults\A_1\psm.tsv");
+            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults/A_1/psm.tsv");
             var file = new MsFraggerPsmFile(path);
             var spectraFiles = file.GetQuantifiableResults().Select(record => record.FileName).Distinct()
                 .Select((fileName, i) => new SpectraFileInfo(fileName, "A", i, 0, 0)).ToList();
@@ -497,7 +497,7 @@ namespace Test.Quantification
         [Test]
         public static void ADiaNnReportIsFilteredOnGlobalQValue()
         {
-            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\DiaNn_LongFormat_report.tsv");
+            string path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/DiaNn_LongFormat_report.tsv");
             var file = new DiaNnReportFile(path);
             var spectraFiles = file.Select(p => p.SpectraFilePath).Distinct()
                 .Select((filePath, i) => new SpectraFileInfo(filePath, "PBMC", i, 0, 0)).ToList();

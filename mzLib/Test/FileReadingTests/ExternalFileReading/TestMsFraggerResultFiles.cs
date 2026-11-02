@@ -24,7 +24,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -35,7 +35,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv", 5)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv", 5)]
         public void TestMsFraggerPsmLoadsAndCountCorrect(string path, int count)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -45,7 +45,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv")]
         public void TestAddProteinGroupInfoCountCorrect (string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -60,8 +60,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1individual_peptide.tsv", 7)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1combined_peptide.tsv", 6)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1individual_peptide.tsv", 7)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1combined_peptide.tsv", 6)]
         public static void TestMsFraggerPeptideLoadsAndCountCorrect(string path, int count)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -71,8 +71,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1individual_protein.tsv", 8)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1combined_protein.tsv", 4)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1individual_protein.tsv", 8)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1combined_protein.tsv", 4)]
         public static void TestMsFraggerProteinLoadsAndCountCorrect(string path, int count)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -85,7 +85,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void TestMsFraggerPsmFirstAndLastCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv");
+                @"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv");
             MsFraggerPsmFile file = new MsFraggerPsmFile(filePath);
             MsFraggerPsm first = file.First();
             MsFraggerPsm last = file.Last();
@@ -178,7 +178,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void TestMsFraggerIndividualPeptideFirstAndLastAreCorrect()
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                               @"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1individual_peptide.tsv");
+                               @"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1individual_peptide.tsv");
             MsFraggerPeptideFile file = new MsFraggerPeptideFile(filePath);
             MsFraggerPeptide first = file.First();
             MsFraggerPeptide last = file.Last();
@@ -228,7 +228,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestMsFraggerIndividualProteinFirstAndLastAreCorrect()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                               @"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1individual_protein.tsv");
+                               @"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1individual_protein.tsv");
             MsFraggerProteinFile file = new MsFraggerProteinFile(path);
             MsFraggerProtein first = file.First();
             MsFraggerProtein last = file.Last();
@@ -286,7 +286,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void TestMsFraggerCombinedPeptideFirstAndLastAreCorrect()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                                              @"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1combined_peptide.tsv");
+                                              @"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1combined_peptide.tsv");
             MsFraggerPeptideFile file = new MsFraggerPeptideFile(path);
             MsFraggerPeptide first = file.First();
             MsFraggerPeptide last = file.Last();
@@ -336,7 +336,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public static void TestMsFraggerCombinedProteinFirstAndLastAreCorrect()
         {
             string path = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                                                             @"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1combined_protein.tsv");
+                                                             @"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1combined_protein.tsv");
             MsFraggerProteinFile file = new MsFraggerProteinFile(path);
             MsFraggerProtein first = file.First();
             MsFraggerProtein last = file.Last();
@@ -396,7 +396,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public static void TestMsFraggerPsmReadWrite()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv");
             string outPath = Path.Combine(directoryPath, "testFraggerPsm");
 
             MsFraggerPsmFile file = new MsFraggerPsmFile(filePath);
@@ -425,7 +425,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public static void TestMsFraggerPeptideReadWrite()
         {
-            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1individual_peptide.tsv");
+            string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1individual_peptide.tsv");
             string outPath = Path.Combine(directoryPath, "testFraggerPeptide");
 
             var file = new MsFraggerPeptideFile(filePath);
@@ -453,7 +453,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public static void TestMsFraggerProteinReadWrite()
         {
-            var filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1individual_protein.tsv");
+            var filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1individual_protein.tsv");
             var outpath = Path.Combine(directoryPath, "testFraggerProtein");
 
             var file = new MsFraggerProteinFile(filePath);

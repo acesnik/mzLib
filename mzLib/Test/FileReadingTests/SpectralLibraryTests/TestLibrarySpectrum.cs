@@ -47,7 +47,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void CrosslinkPsmFromTsvTest()
         {
-            string psmFile = @"FileReadingTests\SearchResults\XL_Intralinks.tsv";
+            string psmFile = @"FileReadingTests/SearchResults/XL_Intralinks.tsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(6, parsedPsms.Count);
             NUnit.Framework.Assert.That(parsedPsms[0].UniqueSequence, Is.EqualTo("LLDNAAADLAAISGQKPLITKAR(21)ITLNMGVGEAIADKK(14)"));
@@ -56,7 +56,7 @@ namespace Test.FileReadingTests.SpectralLibraryTests
         [Test]
         public static void CrosslinkPsmFromTsvToLibrarySpectrumTest()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\XL_Intralinks.tsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/XL_Intralinks.tsv");
             List<string> warnings = new();
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out warnings).ToList();
             NUnit.Framework.Assert.That(warnings.Count == 0);

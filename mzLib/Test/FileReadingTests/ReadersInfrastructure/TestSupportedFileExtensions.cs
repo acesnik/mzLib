@@ -15,53 +15,53 @@ namespace Test.FileReadingTests.ReadersInfrastructure
     {
         private static IEnumerable<TestCaseData> SupportedFileTypeTestCases()
         {
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature", SupportedFileType.Ms2Feature);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature", SupportedFileType.Ms1Feature);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\mzrt_TopFDv1.6.2.mzrt.csv", SupportedFileType.TopFDMzrt);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Ms1Tsv_FlashDeconvOpenMs3.0.0_ms1.tsv", SupportedFileType.Ms1Tsv_FlashDeconv);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Tsv_FlashDeconvOpenMs3.0.0.tsv", SupportedFileType.Tsv_FlashDeconv);
-            yield return new TestCaseData(@"FileReadingTests\SearchResults\ExcelEditedPeptide.psmtsv", SupportedFileType.psmtsv);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv", SupportedFileType.ToppicPrsm);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv", SupportedFileType.ToppicProteoform);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv", SupportedFileType.ToppicProteoformSingle);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv", SupportedFileType.ToppicPrsmSingle);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv", SupportedFileType.MsFraggerPsm);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1individual_peptide.tsv", SupportedFileType.MsFraggerPeptide);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1individual_protein.tsv", SupportedFileType.MsFraggerProtein);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FraggerPeptide_FragPipev21.1combined_peptide.tsv", SupportedFileType.MsFraggerPeptide);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FraggerProtein_FragPipev21.1combined_protein.tsv", SupportedFileType.MsFraggerProtein);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\FlashLFQ_MzLib1.0.549_QuantifiedPeaks.tsv", SupportedFileType.FlashLFQQuantifiedPeak);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_TargetResults_IcTarget.tsv", SupportedFileType.MsPathFinderTTargets);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_DecoyResults_IcDecoy.tsv", SupportedFileType.MsPathFinderTDecoys);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MsPathFinderT_AllResults_IcTda.tsv", SupportedFileType.MsPathFinderTAllResults);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\crux.txt", SupportedFileType.CruxResult);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\EditedMSFraggerResults\experiment_annotation.tsv", SupportedFileType.ExperimentAnnotation);
-            yield return new TestCaseData(@"FileReadingTests\SearchResults\XL_Intralinks.tsv", SupportedFileType.psmtsv);
-            yield return new TestCaseData(@"DataFiles\sliced_ethcd.raw", SupportedFileType.ThermoRaw);
-            yield return new TestCaseData(@"DataFiles\SmallCalibratibleYeast.mzml", SupportedFileType.MzML);
-            yield return new TestCaseData(@"DataFiles\tester.mgf", SupportedFileType.Mgf);
-            yield return new TestCaseData(@"DataFiles\centroid_1x_MS1_4x_autoMS2.d", SupportedFileType.BrukerD);
-            yield return new TestCaseData(@"DataFiles\timsTOF_snippet.d", SupportedFileType.BrukerTimsTof);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign", SupportedFileType.Ms1Align);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Ms2Align_FlashDeconvOpenMs3.0.0_ms2.msalign", SupportedFileType.Ms2Align);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\Casanovo_5.0.0.mztab", SupportedFileType.CasanovoMzTab);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\DiaNn_LongFormat_report.tsv", SupportedFileType.DiaNnReport);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\DiaNn2_report.parquet", SupportedFileType.DiaNnReportParquet);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\PXD000070.sdrf.tsv", SupportedFileType.Sdrf);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\match_output_Lumos_Orbi.txt", SupportedFileType.PytheasResult);
-            yield return new TestCaseData(@"DataFiles\PXD078927_msgf_1_1_0.mzid", SupportedFileType.MzIdentML);
-            yield return new TestCaseData(@"DataFiles\SmallCalibratible_Yeast.mzID", SupportedFileType.MzIdentML);
-            yield return new TestCaseData(@"DataFiles\PXD078927_msgf_1_1_0.mzid.gz", SupportedFileType.MzIdentMLGz);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MetaMorpheus_1.1.11_AllQuantifiedProteinGroups.tsv", SupportedFileType.MetaMorpheusQuantifiedProteinGroups);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MetaMorpheus_1.1.11_AllQuantifiedPeptides.tsv", SupportedFileType.FlashLFQQuantifiedPeptide);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MetaMorpheus_RNA_AllQuantifiedTranscriptGroups.tsv", SupportedFileType.MetaMorpheusQuantifiedTranscriptGroups);
-            yield return new TestCaseData(@"FileReadingTests\ExternalFileTypes\MetaMorpheus_RNA_AllQuantifiedOligos.tsv", SupportedFileType.FlashLFQQuantifiedOligo);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Ms2Feature_FlashDeconvOpenMs3.0.0_ms2.feature", SupportedFileType.Ms2Feature);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature", SupportedFileType.Ms1Feature);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/mzrt_TopFDv1.6.2.mzrt.csv", SupportedFileType.TopFDMzrt);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Ms1Tsv_FlashDeconvOpenMs3.0.0_ms1.tsv", SupportedFileType.Ms1Tsv_FlashDeconv);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Tsv_FlashDeconvOpenMs3.0.0.tsv", SupportedFileType.Tsv_FlashDeconv);
+            yield return new TestCaseData(@"FileReadingTests/SearchResults/ExcelEditedPeptide.psmtsv", SupportedFileType.psmtsv);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv", SupportedFileType.ToppicPrsm);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv", SupportedFileType.ToppicProteoform);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv", SupportedFileType.ToppicProteoformSingle);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv", SupportedFileType.ToppicPrsmSingle);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv", SupportedFileType.MsFraggerPsm);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1individual_peptide.tsv", SupportedFileType.MsFraggerPeptide);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1individual_protein.tsv", SupportedFileType.MsFraggerProtein);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FraggerPeptide_FragPipev21.1combined_peptide.tsv", SupportedFileType.MsFraggerPeptide);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FraggerProtein_FragPipev21.1combined_protein.tsv", SupportedFileType.MsFraggerProtein);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/FlashLFQ_MzLib1.0.549_QuantifiedPeaks.tsv", SupportedFileType.FlashLFQQuantifiedPeak);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_TargetResults_IcTarget.tsv", SupportedFileType.MsPathFinderTTargets);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_DecoyResults_IcDecoy.tsv", SupportedFileType.MsPathFinderTDecoys);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MsPathFinderT_AllResults_IcTda.tsv", SupportedFileType.MsPathFinderTAllResults);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/crux.txt", SupportedFileType.CruxResult);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/EditedMSFraggerResults/experiment_annotation.tsv", SupportedFileType.ExperimentAnnotation);
+            yield return new TestCaseData(@"FileReadingTests/SearchResults/XL_Intralinks.tsv", SupportedFileType.psmtsv);
+            yield return new TestCaseData(@"DataFiles/sliced_ethcd.raw", SupportedFileType.ThermoRaw);
+            yield return new TestCaseData(@"DataFiles/SmallCalibratibleYeast.mzml", SupportedFileType.MzML);
+            yield return new TestCaseData(@"DataFiles/tester.mgf", SupportedFileType.Mgf);
+            yield return new TestCaseData(@"DataFiles/centroid_1x_MS1_4x_autoMS2.d", SupportedFileType.BrukerD);
+            yield return new TestCaseData(@"DataFiles/timsTOF_snippet.d", SupportedFileType.BrukerTimsTof);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Ms1Align_FlashDeconvOpenMs3.0.0_ms1.msalign", SupportedFileType.Ms1Align);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Ms2Align_FlashDeconvOpenMs3.0.0_ms2.msalign", SupportedFileType.Ms2Align);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/Casanovo_5.0.0.mztab", SupportedFileType.CasanovoMzTab);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/DiaNn_LongFormat_report.tsv", SupportedFileType.DiaNnReport);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/DiaNn2_report.parquet", SupportedFileType.DiaNnReportParquet);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/PXD000070.sdrf.tsv", SupportedFileType.Sdrf);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/match_output_Lumos_Orbi.txt", SupportedFileType.PytheasResult);
+            yield return new TestCaseData(@"DataFiles/PXD078927_msgf_1_1_0.mzid", SupportedFileType.MzIdentML);
+            yield return new TestCaseData(@"DataFiles/SmallCalibratible_Yeast.mzID", SupportedFileType.MzIdentML);
+            yield return new TestCaseData(@"DataFiles/PXD078927_msgf_1_1_0.mzid.gz", SupportedFileType.MzIdentMLGz);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MetaMorpheus_1.1.11_AllQuantifiedProteinGroups.tsv", SupportedFileType.MetaMorpheusQuantifiedProteinGroups);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MetaMorpheus_1.1.11_AllQuantifiedPeptides.tsv", SupportedFileType.FlashLFQQuantifiedPeptide);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MetaMorpheus_RNA_AllQuantifiedTranscriptGroups.tsv", SupportedFileType.MetaMorpheusQuantifiedTranscriptGroups);
+            yield return new TestCaseData(@"FileReadingTests/ExternalFileTypes/MetaMorpheus_RNA_AllQuantifiedOligos.tsv", SupportedFileType.FlashLFQQuantifiedOligo);
         }
 
         private static IEnumerable<SupportedFileType> EnumTestCases() => Enum.GetValues<SupportedFileType>();
 
         [Test, TestCaseSource(nameof(SupportedFileTypeTestCases))]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\XL_Intralinks_MIons.tsv", SupportedFileType.psmtsv)] // Read in intralink XL file even if it has a different extension
+        [TestCase(@"FileReadingTests/ExternalFileTypes/XL_Intralinks_MIons.tsv", SupportedFileType.psmtsv)] // Read in intralink XL file even if it has a different extension
         public static void TestSupportedFileTypeExtensions(string filePath, SupportedFileType expectedType)
         {
             var supportedType = filePath.ParseFileType();
@@ -99,9 +99,9 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\FraggerPsm_FragPipev21.1_psm.tsv", SupportedFileType.MsFraggerPsm)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\DiaNn_LongFormat_report.tsv", SupportedFileType.DiaNnReport)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\DiaNn2_report.parquet", SupportedFileType.DiaNnReportParquet)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/FraggerPsm_FragPipev21.1_psm.tsv", SupportedFileType.MsFraggerPsm)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/DiaNn_LongFormat_report.tsv", SupportedFileType.DiaNnReport)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/DiaNn2_report.parquet", SupportedFileType.DiaNnReportParquet)]
         public static void TestIQuantifiableResultFileReaderWorks(string filePath, SupportedFileType expectedType)
         {
             IQuantifiableResultFile resultFile = FileReader.ReadQuantifiableResultFile(filePath);
@@ -114,7 +114,7 @@ namespace Test.FileReadingTests.ReadersInfrastructure
         [Test]
         [TestCase("DataFiles/sliced_ethcd.raw", typeof(MzLibException))]
         [TestCase("DataFiles/xyzl.psmtsv", typeof(FileNotFoundException))]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\Ms1Feature_TopFDv1.6.2_ms1.feature", typeof(MzLibException))]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/Ms1Feature_TopFDv1.6.2_ms1.feature", typeof(MzLibException))]
         public static void TestIQuantifiableResultFileReaderThrowsException(string filePath, Type expectedExceptionType)
         {
             Assert.Throws(expectedExceptionType, () =>

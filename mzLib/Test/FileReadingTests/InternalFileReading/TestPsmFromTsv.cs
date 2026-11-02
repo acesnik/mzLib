@@ -28,7 +28,7 @@ namespace Test.FileReadingTests.InternalFileReading
             // MakeIdentifications path over a real AllPSMs file). Build such a row from a real file and verify it
             // no longer throws and yields empty strings instead of null.
             string template = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+                @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             string[] lines = File.ReadAllLines(template);
             string[] header = lines[0].Split('\t');
             int acc = Array.IndexOf(header, "Protein Accession");
@@ -69,7 +69,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [TestCase("XLink.psmtsv", 19)] // variant crossing
         public static void TestPsmReaderWithMultipleEntryPoints(string path, int expected)
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults",
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults",
                 path);
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFilePath, out var warnings);
             NUnit.Framework.Assert.That(warnings.Count, Is.EqualTo(0));
@@ -98,7 +98,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadInternalIonsPsms()
         {
-            string psmFile = @"FileReadingTests\SearchResults\internalIons.psmtsv";
+            string psmFile = @"FileReadingTests/SearchResults/internalIons.psmtsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(10, parsedPsms.Count);
             var internalIons = parsedPsms[0].MatchedIons.Where(i => i.Annotation.Contains("yIb")).ToList();
@@ -108,7 +108,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadInternalIonsPsms_IntensitiesCorrect()
         {
-            string psmFile = @"FileReadingTests\SearchResults\internalIons.psmtsv";
+            string psmFile = @"FileReadingTests/SearchResults/internalIons.psmtsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(10, parsedPsms.Count);
 
@@ -135,7 +135,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadInternalIonsPsms_MassErrorCorrect()
         {
-            string psmFile = @"FileReadingTests\SearchResults\internalIons.psmtsv";
+            string psmFile = @"FileReadingTests/SearchResults/internalIons.psmtsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(10, parsedPsms.Count);
 
@@ -167,7 +167,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void TestOneOverK0Reading()
         {
-            string psmFile = @"FileReadingTests\SearchResults\OneOverK0Example.psmtsv";
+            string psmFile = @"FileReadingTests/SearchResults/OneOverK0Example.psmtsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(14, parsedPsms.Count);
             var oneOverK0 = parsedPsms[0].OneOverK0;
@@ -177,8 +177,8 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
         public static void ReadOGlycoPsms_LegacyVersion(string psmFile)
         {
             // In this test, we are testing that the glyco-specific fields are read correctly from older versions of the oglyco.psmtsv file.
@@ -192,9 +192,9 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco_NewVersion.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglycoWithWrongExtension.tsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_Glyco(string psmFile)
         {
             // Using direct glycopsm reader
@@ -212,9 +212,9 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco_NewVersion.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglycoWithWrongExtension.tsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_Generic(string psmFile)
         {
             // Using generic psm reader and casting
@@ -232,9 +232,9 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco_NewVersion.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglycoWithWrongExtension.tsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglycoWithWrongExtension.tsv")]
         public static void ReadOGlycoPsmsLocalizedGlycans_AsPsm(string psmFile)
         {
             // Using generic psm reader and casting
@@ -252,8 +252,8 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\oglyco_NewVersion.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/oglyco_NewVersion.psmtsv")]
         public static void GlcyoPsmFromTsv_ModifiedPsmFunction(string path)
         {
             // Test that the GlycoPsmFromTsv modified PSM constructor works as intended
@@ -278,7 +278,7 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\nglyco_noLocalizationScore.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/nglyco_noLocalizationScore.psmtsv")]
         public static void ReadNGlycoPsms_nullCheck(string psmFile) 
         {
             // This test is to ensure that when reading older versions of nglyco.psmtsv files that do not value for several properties e.g. localizationScore and localizationLevel, the glyco-specific fields are still read correctly and the missing localization score fields do not cause any issues.
@@ -310,7 +310,7 @@ namespace Test.FileReadingTests.InternalFileReading
         {
             int expectedGlyco = 9;
             int expectedNormal = 1;
-            string path = @"FileReadingTests\SearchResults\oGlycoAllPsms.psmtsv";
+            string path = @"FileReadingTests/SearchResults/oGlycoAllPsms.psmtsv";
 
             var parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(path, out var warnings);
             NUnit.Framework.Assert.That(warnings.Count, Is.EqualTo(0));
@@ -333,7 +333,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadExcelEditedPsms()
         {
-            string psmFile = @"FileReadingTests\SearchResults\ExcelEditedPeptide.psmtsv";
+            string psmFile = @"FileReadingTests/SearchResults/ExcelEditedPeptide.psmtsv";
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFile, out var warnings);
             Assert.AreEqual(1, parsedPsms.Count);
             IEnumerable<string> expectedIons = new string[] { "y3+1", "y4+1", "b4+1", "b5+1", "b6+1", "b8+1" };
@@ -343,7 +343,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void FailWhenPathIsBadAndContainsNoting()
         {
-            string psmFile = @"DatabaseTests\bad4.fasta";
+            string psmFile = @"DatabaseTests/bad4.fasta";
             var lines = File.ReadAllLines(psmFile).Length;
 
             // Throws the right type of exception
@@ -375,8 +375,8 @@ namespace Test.FileReadingTests.InternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv")]
-        [TestCase(@"FileReadingTests\SearchResults\TDGPTMDSearchResults_NoNameAndGene.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv")]
+        [TestCase(@"FileReadingTests/SearchResults/TDGPTMDSearchResults_NoNameAndGene.psmtsv")]
         public static void TestPsmFromTsvDisambiguatingConstructor(string file)
         {
             // initialize values
@@ -457,7 +457,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void PrecursorMostAbundantMass_OptionalColumn_ReadsAndSurvivesDisambiguation()
         {
             string baseFile = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+                @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
 
             // A file WITHOUT the optional column: the property reads back null, so monoisotopic-mode
             // output is unaffected and old files still read.
@@ -520,7 +520,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void MostAbundantMassDiffPpm_OptionalColumn_ReadsAndDisambiguates()
         {
             string baseFile = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+                @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
 
             // A file WITHOUT the optional column: the property reads back null. The reader only
             // looks for the column when it is present, so monoisotopic-mode output is unaffected.
@@ -593,7 +593,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void TestParseModification()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
             List<string> warnings = new();
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out warnings).Take(20).ToList();
             NUnit.Framework.Assert.That(warnings.Count == 2);
@@ -631,7 +631,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void TestToString()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
             List<string> warnings = new();
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out warnings).Take(3).ToList();
             NUnit.Framework.Assert.That(warnings.Count == 2);
@@ -736,7 +736,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void TestSimpleToLibrarySpectrum()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
             List<string> warnings = new();
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out warnings).Take(3).ToList();
             NUnit.Framework.Assert.That(psms.All(p => p.CollisionEnergy == null));
@@ -746,7 +746,7 @@ namespace Test.FileReadingTests.InternalFileReading
 
             string librarySpectrum = psms[0].ToLibrarySpectrum().ToString();
 
-            string expectedLibrarySpectrum = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\simple.msp"));
+            string expectedLibrarySpectrum = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/simple.msp"));
 
             //not a great way to test equality but we are experiencing a great deal of 10th digit rounding differences
             Assert.AreEqual(Regex.Matches(expectedLibrarySpectrum, "ppm").Count, Regex.Matches(librarySpectrum, "ppm").Count);
@@ -768,7 +768,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [TestCase("File Construction - SpectrumMatchFromTsv")]
         public static void TestPsmFiles(string fileLoadingType)
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\TDGPTMDSearchResults.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/TDGPTMDSearchResults.psmtsv");
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out var warnings);
             NUnit.Framework.Assert.That(warnings.Count == 2);
 
@@ -815,7 +815,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadPsmFromTsvWithNewHeaderTerms()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\NewHeader.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/NewHeader.psmtsv");
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out var warnings);
             NUnit.Framework.Assert.That(warnings.Count == 2);
 
@@ -835,7 +835,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void ReadXLinkPsmFromTsv()
         {
-            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\XLink.psmtsv");
+            string psmTsvPath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/XLink.psmtsv");
             List<PsmFromTsv> psms = SpectrumMatchTsvReader.ReadPsmTsv(psmTsvPath, out var warnings);
 
             IResultFile loadedFile = null;
@@ -850,7 +850,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [TestCase("TDGPTMDSearchResults.psmtsv")] // TopDown
         public static void TestProteinGroupInfos(string path)
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults",
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults",
                 path);
             List<PsmFromTsv> parsedPsms = SpectrumMatchTsvReader.ReadPsmTsv(psmFilePath, out var warnings);
 
@@ -872,7 +872,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [TestCase("TDGPTMDSearchResults.psmtsv", "TDGPTMDSearchSingleSpectra.raw", @"C:/Data/FXN3_tr1_032017-calib.mzML")] // TopDown
         public static void TestFileNameFilePathDictionary(string path, string filePathA, string filePathB)
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults",
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults",
                 path);
             IQuantifiableResultFile file = FileReader.ReadQuantifiableResultFile(psmFilePath);
             List<string> filePaths = new List<string> { filePathA, filePathB };
@@ -886,7 +886,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void TestPsmFromTsvIdentifications()
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
 
             IQuantifiableResultFile file = FileReader.ReadQuantifiableResultFile(psmFilePath);
             SpectraFileInfo f1 = new SpectraFileInfo("04-30-13_CAST_Frac5_4uL.raw", "A", 0, 0, 0);
@@ -900,7 +900,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void FilteringParams_MatchedIonWithEnvelope_SpectrumMatchReaderPsm()
         {
             List<string> errors = new();
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 FragmentIonsHavePlaceholderForEnvelope = true
@@ -916,7 +916,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void FilteringParams_MatchedIonWithEnvelope_SpectrumMatchReaderGeneric()
         {
             List<string> errors = new();
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 FragmentIonsHavePlaceholderForEnvelope = true
@@ -931,7 +931,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void FilteringParams_MatchedIonWithEnvelope_PsmFromTsvFile()
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 FragmentIonsHavePlaceholderForEnvelope = true
@@ -946,7 +946,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void FilteringParams_MatchedIonWithEnvelope_SpectrumMatchReaderPsm_Glyco()
         {
             List<string> errors = new();
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\oglyco.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/oglyco.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 FragmentIonsHavePlaceholderForEnvelope = true
@@ -962,7 +962,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void FilteringParams_MatchedIonWithEnvelope_SpectrumMatchReaderGeneric_Glyco()
         {
             List<string> errors = new();
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults\oglyco.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults/oglyco.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 FragmentIonsHavePlaceholderForEnvelope = true
@@ -977,7 +977,7 @@ namespace Test.FileReadingTests.InternalFileReading
         [Test]
         public static void FilteringParams_DoNotParseFragmentIons()
         {
-            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests\SearchResults", "BottomUpExample.psmtsv");
+            string psmFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, @"FileReadingTests/SearchResults", "BottomUpExample.psmtsv");
             SpectrumMatchParsingParameters parsingParams = new SpectrumMatchParsingParameters
             {
                 ParseMatchedFragmentIons = false
@@ -992,7 +992,7 @@ namespace Test.FileReadingTests.InternalFileReading
         public static void CTerminalResiduePositions_AgreeWithDocumentedOneBasedPosition()
         {
             string searchResultsDirectory = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\SearchResults");
+                @"FileReadingTests/SearchResults");
             var psms = SpectrumMatchTsvReader.ReadPsmTsv(
                     Path.Combine(searchResultsDirectory, "BottomUpExample.psmtsv"), out _)
                 .Cast<SpectrumMatchFromTsv>()

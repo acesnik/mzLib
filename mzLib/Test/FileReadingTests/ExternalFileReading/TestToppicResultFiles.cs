@@ -21,7 +21,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         public void SetUp()
         {
             directoryPath = Path.Combine(TestContext.CurrentContext.TestDirectory,
-                @"FileReadingTests\ReadingWritingTests");
+                @"FileReadingTests/ReadingWritingTests");
             Directory.CreateDirectory(directoryPath);
         }
 
@@ -37,7 +37,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         {
             // test output where the base sequence and full sequence are present
 
-            var path = @"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv";
+            var path = @"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv";
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
             var file = new ToppicSearchResultFile(filePath);
             file.LoadResults();
@@ -51,7 +51,7 @@ namespace Test.FileReadingTests.ExternalFileReading
             }
 
             // test output where the base sequence is not present
-            path = @"FileReadingTests\ExternalFileTypes\ToppicProteoformSingle_TopPICv1.5.3_proteoform_single.tsv";
+            path = @"FileReadingTests/ExternalFileTypes/ToppicProteoformSingle_TopPICv1.5.3_proteoform_single.tsv";
             filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
             file = new ToppicSearchResultFile(filePath);
             file.LoadResults();
@@ -77,11 +77,11 @@ namespace Test.FileReadingTests.ExternalFileReading
 
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv", 4)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv", 37)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv", 7)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv", 10)]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteoformSingle_TopPICv1.5.3_proteoform_single.tsv", 7)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv", 4)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv", 37)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv", 7)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv", 10)]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteoformSingle_TopPICv1.5.3_proteoform_single.tsv", 7)]
         public void TestToppicProteoformAndPrsmLoadAndCountCorrect(string path, int count)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -95,10 +95,10 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
         public void TestToppicHeaderParsing(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -136,8 +136,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
         public void TestToppicProteoformFileResultReading(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -189,7 +189,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public void TestToppicProteoformsFileAlternativeResults()
         {
-            string path = @"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv";
+            string path = @"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv";
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
             ToppicSearchResultFile file = new ToppicSearchResultFile(filePath);
             Assert.That(file.FileType, Is.EqualTo(SupportedFileType.ToppicProteoform));
@@ -224,8 +224,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
         public void TestToppicPrsmFileResultReading(string path)
         {
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -278,7 +278,7 @@ namespace Test.FileReadingTests.ExternalFileReading
         [Test]
         public void TestToppicPrsmsFileAlternativeResults()
         {
-            string path = @"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv";
+            string path = @"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv";
             string filePath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
             ToppicSearchResultFile file = new ToppicSearchResultFile(filePath);
             Assert.That(file.FileType, Is.EqualTo(SupportedFileType.ToppicPrsm));
@@ -321,8 +321,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofrom_TopPICv1.6.2_proteoform.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicProteofromSingle_TopPICv1.6.2_proteoform_single.tsv")]
         public static void TestTopicProteoformsReadWrite(string path)
         {
             string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
@@ -366,8 +366,8 @@ namespace Test.FileReadingTests.ExternalFileReading
         }
 
         [Test]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
-        [TestCase(@"FileReadingTests\ExternalFileTypes\ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsm_TopPICv1.6.2_prsm.tsv")]
+        [TestCase(@"FileReadingTests/ExternalFileTypes/ToppicPrsmSingle_TopPICv1.6.2_prsm_single.tsv")]
         public static void TestToppicPrsmReadWrite(string path)
         {
             string filepath = Path.Combine(TestContext.CurrentContext.TestDirectory, path);
